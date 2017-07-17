@@ -11,6 +11,10 @@ public class PyramidPrintingSecond {
 	public String spaceString(int row, int n) {
 		String spaces_string = "";
 		try {
+			/*
+			 * row should not less then 1, n should not less than 1 and row should not exceed 2n 
+			 * if above condition doesn't meet then throw exception 
+			 * */
 			if (row <= 0 || row > n || n <= 0) {
 				throw new Exception("row and element no n entered");
 			}
