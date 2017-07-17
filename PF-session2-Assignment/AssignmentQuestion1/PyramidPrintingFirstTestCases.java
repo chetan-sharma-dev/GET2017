@@ -2,12 +2,19 @@ package pfsession;
 
 import static org.junit.Assert.*;
 
-import java.util.Arrays;
+
 
 import org.junit.Before;
 import org.junit.Test;
-
+/*
+ * here in test cases Happy-case is positive test case
+ * Unhappy-case is negative test case
+ * and additional exception raise test case which is handled in our called function
+ *   */
 public class PyramidPrintingFirstTestCases {
+	/*
+	 * object created once
+	 * */
 	PyramidPrintingFirst printing_pyramid;
 
 	@Before
@@ -30,7 +37,17 @@ public class PyramidPrintingFirstTestCases {
 		assertEquals(expected_space_string, actual_output_space_string);
 
 	}
+	/*
+	 *here is no row as 0, so throw exception
+	 * */
+	@Test
+	public void spaceExceptionCase() {
+		String expected_space_string = "  ";
+		String actual_output_space_string = printing_pyramid.spaceString(0, 5);
+		assertEquals(expected_space_string, actual_output_space_string);
 
+	}
+	
 	@Test
 	public void numberHappyCase() {
 		String expected_space_string = "1 ";
@@ -46,8 +63,10 @@ public class PyramidPrintingFirstTestCases {
 		assertEquals(expected_space_string, actual_output_space_string);
 
 	}
-
-	@Test(expected = NumberFormatException.class)
+	/*
+	 * row can't be negative, so throw exception
+	 */
+	@Test
 	public void numberExceptionTestCase() {
 		String expected_space_string = "1 2 3 ";
 		String actual_output_space_string = printing_pyramid
@@ -60,25 +79,25 @@ public class PyramidPrintingFirstTestCases {
 	public void pyramidPrintingHappyCase() {
 		String[] expected_space_string = { "  1 ", "1 2 1 ", "  1 " };
 		String[] actual_output_space_string = printing_pyramid.printpyramid(2);
-		assertTrue(Arrays.equals(expected_space_string,
-				actual_output_space_string));
+		assertArrayEquals(expected_space_string,
+				actual_output_space_string);
 
 	}
 
 	@Test
 	public void pyramidPrintingUnhappyCase() {
-		// String[]
-		// expected_space_string={"    1 ","  1 2 1 ","1 2 3 2 1 ","  1 2 1 ","    1 "};
-		String[] expected_space_string = { "    1 ", " 1 2 1 ", "1 2 3 2 1 ",
+	String[] expected_space_string = { "    1 ", " 1 2 1 ", "1 2 3 2 1 ",
 				"  1 2 1 ", "    1 " };
 		String[] actual_output_space_string = printing_pyramid.printpyramid(3);
-		assertTrue(Arrays.equals(expected_space_string,
-				actual_output_space_string));
+		assertArrayEquals(expected_space_string,
+				actual_output_space_string);
 
 	}
-
-	@Test(expected = NumberFormatException.class)
-	public void printPyramidZeroTest() {
+	/*
+	 * row can't be negative, so throw exception
+	 */
+	@Test
+	public void printPyramidExceptionTest() {
 		String[] expected_space_string = { "        " };
 		String[] actual_output_space_string = printing_pyramid.printpyramid(0);
 
