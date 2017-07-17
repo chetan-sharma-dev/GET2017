@@ -1,8 +1,9 @@
-package pfsession2;
+package pfsession;
 
 import static org.junit.Assert.*;
 
 import java.util.Arrays;
+
 import org.junit.Before;
 import org.junit.Test;
 
@@ -46,6 +47,15 @@ public class PyramidPrintingFirstTestCases {
 
 	}
 
+	@Test(expected = NumberFormatException.class)
+	public void numberExceptionTestCase() {
+		String expected_space_string = "1 2 3 ";
+		String actual_output_space_string = printing_pyramid
+				.numberString(-2, 5);
+		assertEquals(expected_space_string, actual_output_space_string);
+
+	}
+
 	@Test
 	public void pyramidPrintingHappyCase() {
 		String[] expected_space_string = { "  1 ", "1 2 1 ", "  1 " };
@@ -66,4 +76,14 @@ public class PyramidPrintingFirstTestCases {
 				actual_output_space_string));
 
 	}
+
+	@Test(expected = NumberFormatException.class)
+	public void printPyramidZeroTest() {
+		String[] expected_space_string = { "        " };
+		String[] actual_output_space_string = printing_pyramid.printpyramid(0);
+
+		assertArrayEquals(expected_space_string, actual_output_space_string);
+
+	}
+
 }
