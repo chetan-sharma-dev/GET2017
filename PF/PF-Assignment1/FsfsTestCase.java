@@ -1,7 +1,5 @@
 package pfsession;
 
-
-
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
@@ -14,6 +12,11 @@ public class FsfsTestCase {
 	public void setUp() {
 		scheduling = new Fcfs();
 	}
+
+	/*
+	 * positive test case where expected output is right so it should return
+	 * true
+	 */
 
 	@Test
 	public void fsfsTestCase1() {
@@ -38,12 +41,16 @@ public class FsfsTestCase {
 				actual_output));
 	}
 
+	/*
+	 * negative test case where expected output is not right so it should return
+	 * false
+	 */
 	@Test
 	public void fsfsTestCase2() {
 		int[] arrival_time = { 0, 5, 8, 11, 15 };
 		int[] job_size = { 12, 19, 21, 13, 15 };
 
-		int[][] expected_output = { { 1, 0, 1, 1, 12 }, { 2, 5, 8, 13, 31 },
+		int[][] expected_output = { { 1, 0, 0, 1, 12 }, { 2, 5, 8, 13, 31 },
 				{ 3, 8, 24, 32, 52 }, { 4, 11, 42, 53, 65 },
 				{ 5, 15, 51, 66, 80 } };
 		int[][] actual_output = scheduling.FCFS(arrival_time, job_size);

@@ -1,5 +1,7 @@
 package pfsession;
-
+/*
+ * conversion program for converting binary no to octal no 
+ */
 public class ConvertionBinaryToOctal {
 
 	public int convertBinaryToOctal(int n)  {

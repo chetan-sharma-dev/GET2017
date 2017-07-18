@@ -1,13 +1,17 @@
 
 package pfsession;
-
-
+/*
+ * this program is for FirstComeFirstServe scheduling  
+*/
 public class Fcfs {
+	/*
+	 * function for checking that return true or false if arrays are equals or not
+	 */
 	public boolean isArrayEqual(int[][] expected, int[][] actual){
 		boolean flag= true;
-		for(int row=0; row<4; row++){
-			for(int column=0; column<5; column++){
-				if(actual[row][column] == expected[row][column]){
+		for(int row=0; row<actual.length; row++){
+			for(int column=0; column<4; column++){
+				if(actual[row][column] != expected[row][column]){
 					flag= false;
 					break;
 				}
