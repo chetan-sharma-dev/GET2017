@@ -7,7 +7,7 @@ public class Fcfs {
 		boolean flag= true;
 		for(int row=0; row<4; row++){
 			for(int column=0; column<5; column++){
-				if(actual[row][column] == expected[row][column]){
+				if(actual[row][column] != expected[row][column]){
 					flag= false;
 					break;
 				}

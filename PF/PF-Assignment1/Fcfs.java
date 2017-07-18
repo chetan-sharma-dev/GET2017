@@ -11,7 +11,7 @@ public class Fcfs {
 		boolean flag= true;
 		for(int row=0; row<actual.length; row++){
 			for(int column=0; column<4; column++){
-				if(actual[row][column] == expected[row][column]){
+				if(actual[row][column] != expected[row][column]){
 					flag= false;
 					break;
 				}
