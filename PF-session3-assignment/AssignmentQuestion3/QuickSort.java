@@ -1,6 +1,12 @@
 package pfsession3;
 
 public class QuickSort {
+	/**
+	 * @Method	quickSort(int[] input_array, int start, int end)
+	 * sorts input array by selecting a pivot element and diving the array into small sublists
+	 * @param	input array that contains unsorted elements,start and end index
+	 * @return	type = void, sorted sublist of input array
+	 * */
 	public void quickSort(int[] input_array, int start, int end) {
 		try {
 			/*
@@ -33,6 +39,12 @@ public class QuickSort {
 
 	}
 
+	/**
+	 * @Method	findPartitionIndex(int[] input_array, int start, int end)
+	 * calculate partition index for creating small sublists
+	 * @param	input array that contains unsorted elements,start and end index
+	 * @return	type = int, sorts the input array
+	 * */
 	public int findPartitionIndex(int[] input_array, int start, int end) {
 		/*
 		 * i is storing the index where the lesser value is stored  

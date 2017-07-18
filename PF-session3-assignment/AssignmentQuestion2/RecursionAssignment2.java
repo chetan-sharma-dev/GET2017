@@ -1,6 +1,12 @@
 package pfsession3;
 
 public class RecursionAssignment2 {
+	/**
+	 * @Method	linearSearch(int[] input_array,int index,int search_element)
+	 * 	search given element in array using linear search approach
+	 * @param	input array that contains sorted elements,start index  and element to be searched
+	 * @return	type = boolean, return true or false
+	 * */
 	
 	public Boolean linearSearch(int[] input_array,int index,int search_element)
 	{ 
@@ -44,7 +50,12 @@ public class RecursionAssignment2 {
 		
 	}
 
-	
+	/**
+	 * @Method	binarySearch(int input[], int start, int end, int element)
+	 * 	search given element in array using binary search approach
+	 * @param	input array that contains sorted elements,start index  and element to be searched
+	 * @return	type = String, return "found" or "not found"
+	 * */
 	public String binarySearch(int input[], int start, int end, int element) {
 		int mid_index = (start + end) / 2;
 		try{
@@ -82,5 +93,6 @@ public class RecursionAssignment2 {
 			}
 		}
 
+	
 	
 }

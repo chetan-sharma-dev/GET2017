@@ -1,6 +1,13 @@
 package pfsession3;
 
 public class RecursionAssignment1 {
+	/**
+	 * @Method	rem(int x, int y)
+	 * 	calculating remainder
+	 * @param	two integer values where x>=0,y>0
+	 * @return	type = int, return remainder
+	 * */
+	
 	public int rem(int x, int y) {
 		int remainder_result = -1;
 		try {
@@ -26,6 +33,12 @@ public class RecursionAssignment1 {
 		return remainder_result;
 	}
 
+	/**
+	 * @Method	gcd(int x, int y)
+	 * 	calculating greatest common divisor of given no's
+	 * @param	two integer values where x>0,y>0
+	 * @return	type = int , return greatest common divisor
+	 * */
 	public int gcd(int x, int y) {
 		try {
 			/*
@@ -49,6 +62,12 @@ public class RecursionAssignment1 {
 		}
 	}
 
+	/**
+	 * @Method	largestDigit(int x, int y)
+	 * 	calculating largest digit in given no
+	 * @param	two integer values where x>0,y>0
+	 * @return	type = int , return largest digit
+	 * */
 	public int largestDigit(int x) {
 		int maximum_digit =0;
 		try {
