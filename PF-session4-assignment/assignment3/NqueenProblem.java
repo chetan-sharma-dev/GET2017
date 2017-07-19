@@ -8,14 +8,22 @@ public class NqueenProblem {
 	 * @param	input array 
 	 * @return	type = boolean, true or false 
 	 * */
-	public boolean getSolution(int[][] input)
+	public boolean getSolution(int[][] input,int startrow,int dimensionOfMatrix)
 	{
 		try {
 			/*
 			 * checking for valid condition if fails return Exception else returning status of solution true or false calculated in another Function
 			*/
-			if (input.length > 0 && input[0].length == input.length)
-			{
+			if (input.length > 0 && input[0].length == input.length&&startrow==0&&dimensionOfMatrix==input.length)
+			{ 
+				int n=input.length;
+				for(int i=0;i<n;i++)
+				{
+					for(int j=0;j<n;j++)
+					{
+						input[i][j]=0;
+					}
+				}
 				return getNqueenSolution(input, 0);
 			}
 			else
