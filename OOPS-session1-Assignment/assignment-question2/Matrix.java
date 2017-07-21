@@ -147,30 +147,5 @@ public class Matrix {
 		}
 	}
 
-	public static void main(String... s) {
-		Matrix access_matrix_method = new Matrix(3, 2);
-		Matrix access_matrix_method1 = new Matrix(2, 3);
-		access_matrix_method.data[0][0] = 1;
-		access_matrix_method.data[0][1] = 2;
-		access_matrix_method.data[1][0] = 3;
-		access_matrix_method.data[1][1] = 4;
-		access_matrix_method.data[2][0] = 5;
-		access_matrix_method.data[2][1] = 6;
-		access_matrix_method1.data[0][0] = 1;
-		access_matrix_method1.data[0][1] = 2;
-		access_matrix_method1.data[0][2] = 3;
-		access_matrix_method1.data[1][0] = 4;
-		access_matrix_method1.data[1][1] = 5;
-		access_matrix_method1.data[1][2] = 6;
 
-		int[][] expected = access_matrix_method.multiply(access_matrix_method1);
-		for (int i = 0; i < access_matrix_method.noRows; i++) {
-			for (int j = 0; j < access_matrix_method1.noCols; j++) {
-				System.out.print(expected[i][j] + " ");
-			}
-
-			System.out.println("");
-		}
-
-	}
 }

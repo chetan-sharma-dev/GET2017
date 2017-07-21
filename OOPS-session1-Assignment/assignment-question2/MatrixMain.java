@@ -1,4 +1,4 @@
-package oopsassignment1;
+package oops_session1;
 
 import java.util.Scanner;
 
