@@ -4,7 +4,9 @@ import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Set;
 
-public class Questions {
+import oops_session2.Question;
+
+public class Questions implements Comparable<Questions> {
 
 	String question_text;
 	String question_type;
@@ -49,5 +51,13 @@ public class Questions {
 			return true;
 		else
 			return false;
+	}
+	
+	public int compareTo(Questions object)
+	{
+		String[] split_one=question_text.split(". ");
+		String[] split_second=object.question_text.split(". ");
+		return split_one[1].compareTo(split_second[1]);
+		//return question_text.compareTo(object.question_text);
 	}
 }

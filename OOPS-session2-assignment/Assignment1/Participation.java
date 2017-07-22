@@ -33,7 +33,7 @@ public class Participation {
 		
 	}
 	
-	public void showReport1()
+	public void showReport2()
 	{
 		
 	}
