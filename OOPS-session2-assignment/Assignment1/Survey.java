@@ -117,6 +117,11 @@ public class Survey {
 									+ ", "
 									+ question_object[question_index].question_type);
 					participant_answer = scan_input.nextLine();
+					if (Text.isValidInput(participant_answer) == false) {
+						System.out.println("Invalid number input");
+						question_index--;
+					}
+					
 
 				}
 				/*
