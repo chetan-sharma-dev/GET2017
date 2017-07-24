@@ -3,7 +3,7 @@ package oopsassignment2;
 import java.util.HashMap;
 
 public class Single extends Questions {
-	HashMap<String,Integer> single_choice_options=new HashMap<String,Integer>();
+	
 	
 	/**
 	 * @Method isValidInput(String participant_answer,Questions question_object)

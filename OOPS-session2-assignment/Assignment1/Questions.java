@@ -85,7 +85,9 @@ public class Questions implements Comparable<Questions> {
 				question_object[question_index] = new Questions(
 						splited_field_values[0], splited_field_values[1],
 						splited_field_values[2]);
-				String[] choice_options = splited_field_values[2].split("/");
+				String option_string=splited_field_values[2].replace("(", "");
+				option_string=option_string.replace(")", "");
+				String[] choice_options = option_string.split("/");
 				/*
 				 * Single select choice initialization
 				 */
