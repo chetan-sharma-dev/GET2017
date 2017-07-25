@@ -1,0 +1,6 @@
+Q1. Overall Rating, Single Select, (1/2/3/4/5)
+Q2. Other Rating, Single Select, (1/2/3/4/5/6)
+Q3. Area of improvement, Multi Select, (Service Quality/Communication/Delivery Process)
+Q4. Work progress, Text
+Q5. No of person enrolled, Number
+Q6. Feedback, Text
