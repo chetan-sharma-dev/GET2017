@@ -46,11 +46,7 @@ public class OrderFixedAmountPromotion extends Promotion {
 		return this.discount;
 	}
 
-	public double getDiscount(double amountAfterProductlevelDiscount) {
-
-		return this.discount;
-	}
-
+	
 	
 
 }

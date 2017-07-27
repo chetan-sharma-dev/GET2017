@@ -43,9 +43,6 @@ public class OrderFixedPercentPromotion extends Promotion {
 		return (amountAfterProductlevelDiscount*this.discount)/100;
 	}
 
-	public double getDiscount(double amountAfterProductlevelDiscount) {
-
-		return (amountAfterProductlevelDiscount*this.discount)/100;
-	}
+	
 
 }
