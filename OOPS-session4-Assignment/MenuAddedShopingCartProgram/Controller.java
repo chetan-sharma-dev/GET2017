@@ -108,12 +108,12 @@ public class Controller implements Action{
 		}
 		catch(IOException e)
 		{
-			//System.out.println(e);
+			System.out.println(e);
 			return new Promotion[0];
 		}
 		catch(NullPointerException e)
 		{
-			//System.out.println(e);
+			System.out.println(e);
 			return new Promotion[0];
 		}
 	}
@@ -334,11 +334,15 @@ public class Controller implements Action{
 						break;
 					case "Display Bill":
 						if(orderObject!=null)
-						{promotionResultObject=new PromotionResult();
-						promotionResultObject.calculatePromotionDiscounts(orderObject, productPromotionObject, orderPromotionObject);
-						generateBillObject=new BillGeneration();
-						generateBillObject.generateBill(promotionResultObject,orderObject, productPromotionObject, orderPromotionObject);
-						printBill(generateBillObject);}
+						{
+							promotionResultObject=new PromotionResult();
+							promotionResultObject.calculatePromotionDiscounts(orderObject, productPromotionObject, orderPromotionObject);
+							generateBillObject=new BillGeneration();
+							generateBillObject.generateBill(promotionResultObject,orderObject, productPromotionObject, orderPromotionObject);
+							printBill(generateBillObject);
+							System.out.println("-------------------------------------------------------------------------------");
+						
+						}
 						else
 							System.out.println("No product Ordered");
 						break;

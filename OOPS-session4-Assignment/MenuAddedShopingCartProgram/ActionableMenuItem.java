@@ -1,12 +1,17 @@
 package oopssession4;
-
+/*
+ * class responsible for making menuItem actionAble
+ * */
 public class ActionableMenuItem extends MenuItem{
 	
 	Action action;
 
-	
-	public void triggerAction(String displayname){
-		this.action.performAction(displayname);
+	/*
+	 * triggering action
+	 * */
+	public void triggerAction(){
+		//System.out.println(this.getDisplayName());
+		this.action.performAction(getDisplayName());
 	}
 
 	public ActionableMenuItem(Action action) {

@@ -6,7 +6,7 @@ package oopssession4;
  */
 public class ShopingCartAllConstants {
 
-	public static final String packageName="src/oopssession/"; 
+	public static final String packageName="src/oopssession4/"; 
 	public static final String PRODUCT_LIST_CSV_FILE_PATH=packageName+"product.csv"; 
 	public static final String ORDER_PROMOTION_CSV_FILE_PATH=packageName+"OrderPromotion.csv"; 
 	public static final String PRODUCT_PROMOTION_CSV_FILE_PATH=packageName+"ProductPromotion.csv"; 

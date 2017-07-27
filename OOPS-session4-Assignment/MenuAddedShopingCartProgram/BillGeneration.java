@@ -21,7 +21,7 @@ public class BillGeneration {
 	 * @return
 	 */
 	public List<String> getOrderBill() {
-		System.out.println("getting bill");
+		
 		if(orderBill.size()>0)
 			return orderBill;
 		else
