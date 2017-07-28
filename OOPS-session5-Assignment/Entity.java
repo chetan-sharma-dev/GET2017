@@ -4,7 +4,7 @@ package SocialNetwork;
  */
 
 /**
- * @author shubham
+ * @author chetan
  *
  */
 public class Entity {
