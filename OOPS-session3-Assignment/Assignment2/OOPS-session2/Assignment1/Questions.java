@@ -18,8 +18,8 @@ public class Questions implements Comparable<Questions> {
 	 * multiple_choice_option is storing all multiple choice options 
 	 * we used these for checking input validation
 	 * */
-	HashMap<String,Integer> single_choice_options;
-	Set<String> multiple_choice_options;
+	HashMap<String,Integer> single_choice_options=new HashMap<String,Integer>();
+	Set<String> multiple_choice_options=new HashSet<String>();
 	
 	/**
 	 * @Constructor Questions()
@@ -40,15 +40,8 @@ public class Questions implements Comparable<Questions> {
 		this.question_text=question_text;
 		this.question_type=question_type;
 		this.options=options;
-		if("Single Select".compareTo(question_type)==0)
-		{
-			single_choice_options=new HashMap<String,Integer>();
+		
 		}
-		else if("Multi Select".compareTo(question_type)==0)
-		{
-		 multiple_choice_options=new HashSet<String>();
-		}
-	}
 	
 	/**
 	 * @Method  createQuestionObject(int noOfObjects)
@@ -92,9 +85,7 @@ public class Questions implements Comparable<Questions> {
 				question_object[question_index] = new Questions(
 						splited_field_values[0], splited_field_values[1],
 						splited_field_values[2]);
-				String option_string=splited_field_values[2].replace("(", "");
-				option_string=option_string.replace(")", "");
-				String[] choice_options = option_string.split("/");
+				String[] choice_options = splited_field_values[2].split("/");
 				/*
 				 * Single select choice initialization
 				 */
