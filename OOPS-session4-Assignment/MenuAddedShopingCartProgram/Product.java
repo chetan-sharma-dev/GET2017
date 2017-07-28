@@ -1,4 +1,4 @@
-package oops_session3;
+package oopssession4;
 
 import java.io.BufferedReader;
 import java.io.FileInputStream;
@@ -25,6 +25,7 @@ public class Product {
 	{
 		return allProductIds.containsKey(productId);
 	}
+	
 	public static Product getProductReference(int productId)
 	{
 		return allProductIds.get(productId);

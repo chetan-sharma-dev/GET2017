@@ -1,4 +1,4 @@
-package oops_session3;
+package oopssession4;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -21,7 +21,11 @@ public class BillGeneration {
 	 * @return
 	 */
 	public List<String> getOrderBill() {
-		return orderBill;
+		
+		if(orderBill.size()>0)
+			return orderBill;
+		else
+			return null;
 	}
 
 	/**
@@ -32,6 +36,7 @@ public class BillGeneration {
 	 */
 	public void generateBill(PromotionResult promotionResultObject,Order orderObject,Promotion[] productPromotionObject,Promotion[] orderPromotionObject)
 	{
+		
 		orderBill.add("########################################################");
 		orderBill.add("YOUR ORDER :");
 		orderBill.add("########################################################");
@@ -166,8 +171,7 @@ public class BillGeneration {
 		orderBill.add("Total Discounts :$"+orderObject.getTotalDiscount());
 		orderBill.add("Total :$"+orderObject.getTotal());
 		
-		
-		
+	
 		
 	}
 

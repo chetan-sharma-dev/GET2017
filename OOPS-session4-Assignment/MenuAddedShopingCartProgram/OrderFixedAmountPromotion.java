@@ -1,4 +1,4 @@
-package oops_session3;
+package oopssession4;
 
 
 
@@ -46,7 +46,11 @@ public class OrderFixedAmountPromotion extends Promotion {
 		return this.discount;
 	}
 
-	
+	public double getDiscount(double amountAfterProductlevelDiscount) {
+
+		return this.discount;
+	}
+
 	
 
 }
