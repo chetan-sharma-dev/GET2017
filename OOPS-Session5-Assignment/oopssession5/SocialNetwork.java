@@ -1,6 +1,4 @@
 package oopssession5;
-
-
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -8,7 +6,7 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Scanner;
 
-import oops_session3.AllConstants;
+
 
 public class SocialNetwork {
 	static Scanner scanInput=new Scanner(System.in);
@@ -17,10 +15,11 @@ public class SocialNetwork {
 	public static Graph graphObject;
 	public static Connections connectionObject;
 	
-	/*
+	/**
+	 * @method scanIntegervalueWithValidation()
 	 * method takes integer Values and check for validation
 	 * */
-	public static int takeIntegervalueWithValidation()
+	public static int scanIntegervalueWithValidation()
 	{
 		try
 		{
@@ -37,15 +36,18 @@ public class SocialNetwork {
 			return -1;
 		}
 	}
-	/*
+	/**
+	 * @method createNewUser() 
 	 * method for creating new user 
+	 * showing menu and scanning user input 
+	 * calling method recursively while entered input is invalid
 	 * */
-	public static void createNewUser() throws IOException
+	public static void createNewUser() 
 	{
 		String entityDetails="";
 		System.out.println("Select Entity Type:");
 		System.out.println("1.User \n2.Organization \n3.go back");
-		int choice=takeIntegervalueWithValidation();
+		int choice=scanIntegervalueWithValidation();
 		String entityType="";
 		switch(choice)
 		{
@@ -58,7 +60,10 @@ public class SocialNetwork {
 				return;
 		}
 		System.out.println("Enter ID:");
-		int entityId=takeIntegervalueWithValidation();
+		int entityId=scanIntegervalueWithValidation();
+		/*
+		 * validating userId
+		 * */
 		if(!Entity.isValidEntity(entityId)&&entityId>0)
 		{
 			System.out.println("Enter Name:");
@@ -66,14 +71,14 @@ public class SocialNetwork {
 			if("User".compareTo(entityType)==0)
 			{
 				System.out.println("Enter Age:");
-				int entityAge=takeIntegervalueWithValidation();
+				int entityAge=scanIntegervalueWithValidation();
 				System.out.println("Enter Hobby:");
 				String entityHobby=scanInput.nextLine();
 				entityDetails=entityId+","+entityType+","+entityName+","+entityHobby+","+entityAge;
 			}
 			else if("Organization".compareTo(entityType)==0)
 			{
-				System.out.println("Enter Entity Organization Name:");
+				System.out.println("Enter Organization work:");
 				String organizationName=scanInput.nextLine();
 				entityDetails=entityId+","+entityType+","+entityName+","+organizationName;
 			}
@@ -83,6 +88,14 @@ public class SocialNetwork {
 			System.out.println("Entity Already exist");
 			createNewUser();
 		}
+		else
+		{
+			System.out.println("Invalid format Id entered");
+			createNewUser();
+		}
+		/*
+		 * if some entry to be done then append in file
+		 * */
 		if(entityDetails.length()>0)
 		{
 			FileOperations.appendInFile("src/oopssession5/userdetails.csv",entityDetails );
@@ -92,17 +105,21 @@ public class SocialNetwork {
 		initialize();
 	}
 	
-	/*
+	/*@method displayEntityConnections(int entityId)
 	 * method for displaying Entities Connections
 	 * */
 	public static void displayEntityConnections(int entityId)
 	{
+		/*
+		 * iterating connection list
+		 * */
 		System.out.println("--------------------------------------------------------------------------------");
 		System.out.println("All your connections:");
 		List<Integer> allConnections=connectionObject.getConnections(entityId);
 		if(allConnections!=null)
-		{Iterator<Integer> iterateConnetions=allConnections.iterator();
-		while(iterateConnetions.hasNext()) {
+		{
+			Iterator<Integer> iterateConnetions=allConnections.iterator();
+			while(iterateConnetions.hasNext()) {
 	         System.out.println(iterateConnetions.next());
 	      }
 		}
@@ -112,33 +129,42 @@ public class SocialNetwork {
 		}
 	}
 	
-	/*
-	 * methods 
+	/* @method displayEntityProfile(int entityId)
+	 * methods for displaying entity profile
 	 * */
 	public static void displayEntityProfile(int entityId)
 	{
 		System.out.println("--------------------------------------------------------------------------------");
 		Entity entityObject=Entity.getEntityReference(entityId);
-		System.out.println("Your Id"+entityId);
-		System.out.println("Name :"+entityObject.getEntityName());
-		System.out.println("Type :"+entityObject.getEntityType());
+		System.out.println("Your Id : "+entityId);
+		System.out.println("Name : "+entityObject.getEntityName());
+		System.out.println("Type : "+entityObject.getEntityType());
 		if(entityObject instanceof User)
 		{	
-			System.out.println("Age:"+((User)entityObject).getAge());
-			System.out.println("Hobby:"+((User)entityObject).getHobby());
+			System.out.println("Age : "+((User)entityObject).getAge());
+			System.out.println("Hobby : "+((User)entityObject).getHobby());
 		}
 		else
 		{
-			System.out.println("Work:"+((Organization)entityObject).getOrganisationWork());
+			System.out.println("Work : "+((Organization)entityObject).getOrganisationWork());
 		}
 		displayEntityConnections(entityId);
 		
 	}
 	
-	public static void connectPersons(int firstEntityId) throws IOException
+	/**
+	 * @method connectPersons(int firstEntityId)
+	 * method for connecting two persons in connections
+	 * */
+	public static void connectPersons(int firstEntityId)
 	{
 		System.out.println("Enter Id of entity for connection:");
-		int secondEntityId=takeIntegervalueWithValidation();
+		int secondEntityId=scanIntegervalueWithValidation();
+		/*
+		 * checking whether the given entry is valid or not
+		 * if valid then connect else show error message
+		 * id for connection should be different from given ids
+		 * */
 		if(Entity.isValidEntity(secondEntityId)&&firstEntityId!=secondEntityId)
 		{
 			connectionObject.addConnectionsInGraph(firstEntityId, secondEntityId);
@@ -157,6 +183,10 @@ public class SocialNetwork {
 		
 	}
 	
+	/**
+	 * @method displayAllSuggestions(int entityId)
+	 * method for displaying all suggestions
+	 * */
 	public static void displayAllSuggestions(int entityId)
 	{
 		System.out.println("--------------------------------------------------------------------------------");
@@ -164,6 +194,10 @@ public class SocialNetwork {
 		System.out.println("--------------------------------------------------------------------------------");
 		for(int i=0;i<entityObject.length;i++)
 		{
+			/*
+			 * Entity itself will not be displayed
+			 * checking connections , already connected are not displayed
+			 * */
 			if(entityObject[i].getEntityId()!=entityId&&!connectionObject.getConnections().get(entityId).contains(entityObject[i].getEntityId()))
 			{
 				System.out.println(entityObject[i].getEntityId()+"\t\t"+entityObject[i].getEntityType()+"\t\t"+entityObject[i].getEntityName());
@@ -172,17 +206,28 @@ public class SocialNetwork {
 		
 	}
 	
+	/**
+	 * @method displayAllConnections()
+	 * method for displaying all connections
+	 * */
+	
 	public static void displayAllConnections()
 	{
 		System.out.println("--------------------------------------------------------------------------------");
 		System.out.println("\t\t\tAll connections");
 		System.out.println("--------------------------------------------------------------------------------");
+		/*
+		 * getting all connection HashMap and printing connections
+		 * */
 		HashMap<Integer,ArrayList<Integer>> connectionListOfEntities=connectionObject.getConnections();
 		 int setSize=connectionListOfEntities.keySet().size();
 		Integer[] splitedArray=connectionListOfEntities.keySet().toArray(new Integer[setSize]);
 		
 		for(int i=0;i<setSize;i++)
 		{	
+			/*
+			 * getting connections list for particular Entity and iterating list
+			 * */
 			List<Integer> listOfConnections=connectionListOfEntities.get(splitedArray[i]);
 			Iterator<Integer> listIterator=listOfConnections.iterator();
 			System.out.print(splitedArray[i]+"-->");
@@ -195,6 +240,10 @@ public class SocialNetwork {
 		}
 	}
 	
+	/**
+	 * @method displayAllNetworkUsers()
+	 * displaying all network entities
+	 * */
 	public static void displayAllNetworkUsers()
 	{
 		System.out.println("--------------------------------------------------------------------------------");
@@ -208,7 +257,10 @@ public class SocialNetwork {
 		
 		
 	}
-	
+	/**
+	 * 	@method searchByName()
+	 * 	 searching by name in network an showing his details
+	 * */
 	public static void searchByName()
 	{
 		System.out.println("Enter the name to search");
@@ -229,26 +281,40 @@ public class SocialNetwork {
 		
 	}
 	
-	public static void initialize() throws IOException
+	/**
+	 * @method initialize()
+	 * initializing all Entity and Node and connection objects
+	 * */
+	public static void initialize()
 	{
-		String path="src/oopssession5/userdetails.csv";
-		int noOfEntities = FileOperations.countNoOfLinesInFile(path);
-		
-		entityObject =new Entity[noOfEntities];
-		entityObject=Entity.readFileAndInitailizeEntities(noOfEntities,path);
-		nodeObject=new Node[noOfEntities];
-		graphObject=new Graph();
-		connectionObject=new Connections();
-		connectionObject.initailizeAllConnections("src/oopssession5/connection.csv");
-		nodeObject=Node.initailizeAllNodes(entityObject,graphObject,connectionObject);
-		
+		try{
+			String path="src/oopssession5/userdetails.csv";
+			int noOfEntities = FileOperations.countNoOfLinesInFile(path);
+			
+			entityObject =new Entity[noOfEntities];
+			entityObject=Entity.readFileAndInitailizeEntities(noOfEntities,path);
+			nodeObject=new Node[noOfEntities];
+			graphObject=new Graph();
+			connectionObject=new Connections();
+			connectionObject.initailizeAllConnections("src/oopssession5/connection.csv");
+			nodeObject=Node.initailizeAllNodes(entityObject,graphObject,connectionObject);
+		}
+		catch(IOException e)
+		{
+			System.out.println(e);
+		}
 		
 	}
 	
-	public static void signin() throws IOException
+	/**
+	 * @method signin()
+	 * method for signing in
+	 * showing Entity Options if valid id entered
+	 * */
+	public static void signin()
 	{
 		System.out.println("Enter Your Id");
-		int entityId=takeIntegervalueWithValidation();
+		int entityId=scanIntegervalueWithValidation();
 		if(Entity.isValidEntity(entityId))
 		{
 			showEntityOptions(entityId);
@@ -259,12 +325,16 @@ public class SocialNetwork {
 		}
 	}
 	
-	public static void showEntityOptions(int entityId) throws IOException
+	/**
+	 * @method showEntityOptions(int entityId)
+	 * method showing all options to logged in Entity
+	 * */
+	public static void showEntityOptions(int entityId)
 	{
 		System.out.println("--------------------------------------------------------------------------------");
 		System.out.println("1.see profile \n2.see your connections \n3.see all connection suggestions \n4.connect to another other Users \n5.Go Back");
 		System.out.println("--------------------------------------------------------------------------------");
-		int choosedOption=takeIntegervalueWithValidation();
+		int choosedOption=scanIntegervalueWithValidation();
 		
 		System.out.println("");
 		switch (choosedOption) {
@@ -290,6 +360,7 @@ public class SocialNetwork {
 		showEntityOptions(entityId);
 	}
 	
+
 	public static void main(String...s) throws IOException
 	{
 		initialize();
@@ -299,7 +370,7 @@ public class SocialNetwork {
 			System.out.println("Enter Your Choice");
 			System.out.println("1.Signin \n2.signup \n3.display all network Users \n4.Display all connections \n5.Search by Name \n6.Exit");
 			System.out.println("--------------------------------------------------------------------------------");
-			int choice=takeIntegervalueWithValidation();
+			int choice=scanIntegervalueWithValidation();
 			
 			switch(choice)
 			{

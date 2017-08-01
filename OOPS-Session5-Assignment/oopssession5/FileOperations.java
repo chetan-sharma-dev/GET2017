@@ -4,6 +4,7 @@ import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileInputStream;
+import java.io.FileNotFoundException;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -11,7 +12,7 @@ import java.util.List;
 import java.util.Iterator;
 
 public class FileOperations {
-	/*
+	/**
 	 * @method countNoOfLinesInFile(String path)
 	 * giving line count of given file.
 	 * */
@@ -28,76 +29,49 @@ public class FileOperations {
 		return line_count;
 	}
 	
-	/*
-	 * @method  generateBillFile(List<String> orderBill)
-	 * storing orderedBill in file
-	 * */
-	public static void generateBillFile(List<String> orderBill)  {
-		  try{
-			    // Create file 
-			    FileWriter fstream = new FileWriter("");
-			        BufferedWriter out = new BufferedWriter(fstream);
-			        Iterator<String> itr =orderBill.iterator();
-			        /*
-			         * iterating list and doing entry in file line by line
-			         * */
-			        	while (itr.hasNext()) {
-			        		 out.write(itr.next());
-			        		 out.newLine();
-			    		}
-			        	
-			    //Close the output stream
-			    out.close();
-			    }catch (Exception e){//Catch exception if any
-			      System.err.println("Error: " + e.getMessage());
-			    }
-		
-	}
-
+	/**
+	 * @method appendInFile(String path,String data) 
+	 * append line in file without over writing whole contents
+	 */
 
 	public static void appendInFile(String path,String data)
 	{
-		BufferedWriter bw = null;
-		FileWriter fw = null;
+		BufferedWriter bufferWriterObject = null;
+		FileWriter fileWriterObject = null;
 
 		try {
-
-			
-
 			File file = new File(path);
-
-			// if file doesnt exists, then create it
 			if (!file.exists()) {
 				file.createNewFile();
 			}
+			/*
+			 * true is for appending mode
+			 * */
+			fileWriterObject = new FileWriter(file.getAbsoluteFile(), true);
+			bufferWriterObject = new BufferedWriter(fileWriterObject);
 
-			// true = append file
-			fw = new FileWriter(file.getAbsoluteFile(), true);
-			bw = new BufferedWriter(fw);
+			bufferWriterObject.write(data);
+			bufferWriterObject.newLine();
 
-			bw.write(data);
-			bw.newLine();
-//			System.out.println("Done");
+		}catch(FileNotFoundException e)
+		{
+			System.out.println("no such file exist"+e);
+		}
+		catch (IOException e) {
 
-		} catch (IOException e) {
-
-			System.out.println(e);
-			e.printStackTrace();
-
+			System.out.println("error in writting file"+e);
 		} finally {
 
 			try {
 
-				if (bw != null)
-					bw.close();
+				if (bufferWriterObject != null)
+					bufferWriterObject.close();
 
-				if (fw != null)
-					fw.close();
+				if (fileWriterObject != null)
+					fileWriterObject.close();
 
-			} catch (IOException ex) {
-
-				ex.printStackTrace();
-
+			} catch (IOException e) {
+					System.out.println(e);
 			}
 		}
 

@@ -1,10 +1,17 @@
 package oopssession5;
-
+/*
+ * @class User
+ * extending Entity class 
+ * */
 public class User extends Entity {
 
 	private String hobby;
 	private int age;
 	
+	/*
+	 * @constructor
+	 * parameterized constructor for initializing all data members;
+	 * */
 	public User(int entityId,String entityType,String entityName,String entityHobby,int entityAge)
 	{
 		super(entityId, entityType, entityName);
