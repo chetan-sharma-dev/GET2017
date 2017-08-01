@@ -4,9 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Graph {
-	/*
-	 * list of all nodes
-	 * */
+	
 	private List<Node> listOfAllNodes;
 	
 	public Graph()
@@ -22,9 +20,6 @@ public class Graph {
 		this.listOfAllNodes = listOfAllNodes;
 	}
 
-	/*
-	 * add node class object in list  
-	 * */
 	public void addNodeInGraph(Node nodeObject)
 	{
 		List<Node> listOfAllNodes=getListOfAllNodes();

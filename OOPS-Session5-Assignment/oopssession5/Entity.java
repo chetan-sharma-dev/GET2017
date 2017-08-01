@@ -2,7 +2,6 @@ package oopssession5;
 
 import java.io.BufferedReader;
 import java.io.FileInputStream;
-import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.HashMap;
@@ -13,25 +12,15 @@ import java.util.HashMap;
 	private int entityId;
 	private String entityName;
 	private String entityType;
-	/*
-	 * common data member for all objects of Entity class 
-	 * has reference of all entries of Ids and their references
-	 * */
+	
 	private static HashMap<Integer, Entity> allEntityReferences=new HashMap<Integer, Entity>();
 	
-	/**
-	 * @constructor initializing datamembers
-	 * */
 	public Entity(int entityId,String entityType,String entityName)
 	{
 		this.entityId=entityId;
 		this.entityType=entityType;
 		this.entityName=entityName;
 	}
-	/*
-	 * @method getEntityReference(int entityId)
-	 * returning reference of particular id 
-	 * */
 	public static Entity getEntityReference(int entityId)
 	{
 		if(isValidEntity(entityId))
@@ -44,31 +33,16 @@ import java.util.HashMap;
 		}
 	}
 	
-	/**
-	 * @method getEntityNewObject(String[] entityDetails)
-	 * returning new object of Entity
-	 * */
-	 private static Entity getEntityNewObject(String[] entityDetails)
+	 private static Entity getEntityObject(String[] entityDetails)
 		{
 		 	int entityId=Integer.parseInt(entityDetails[0]);
 			String entityType=entityDetails[1];
 			
 			String entityName=entityDetails[2];
 			
-			switch (entityType) {
-			
-			case "User":
-				return new User(entityId, entityType, entityName, entityDetails[3],
-						Integer.parseInt(entityDetails[4]));
-			case "Organization":
-				return new Organization(entityId, entityType, entityName,
-						entityDetails[3]);
-			default:
-				return null;
-				
-			}
-			/*if("User".compareTo(entityType)==0)
+			if("User".compareTo(entityType)==0)
 			{
+				return new User(entityId, entityType, entityName, entityDetails[3], Integer.parseInt(entityDetails[4]));
 				
 			}
 			else if("Organization".compareTo(entityType)==0)
@@ -78,15 +52,12 @@ import java.util.HashMap;
 			}
 			
 			else
-				return null;*/
+				return null;
 		
 			
 		}
-		/*
-		 * @method readFileAndInitailizeEntities(int noOfEntities,String path)
-		 * method reading from file and initializing all objects of entity class
-		 * */
-	public static Entity[] readFileAndInitailizeEntities(int noOfEntities,String path)
+		
+	public static Entity[] readFileAndInitailizeEntities(int noOfEntities,String path) throws IOException
 	{
 		try{
 		
@@ -98,11 +69,8 @@ import java.util.HashMap;
 		String entityDetails;
 		int entityIndex=0;
 		while ((entityDetails=bufferInput.readLine()) != null) {
-			/*
-			 * splitting from , and then getting appropriate object for initialization
-			 * */
 			String[] splitedEntityDetails=entityDetails.split("\\,");
-			Entity entityReference=getEntityNewObject(splitedEntityDetails);
+			Entity entityReference=getEntityObject(splitedEntityDetails);
 			if(entityReference!=null)
 			{
 				entityObject[entityIndex++]=entityReference;
@@ -110,7 +78,7 @@ import java.util.HashMap;
 			}else{
 				bufferInput.close();
 				fileInput.close();
-				throw new IOException("invalid entries in file");
+				throw new NullPointerException("invalid entries in file");
 			}
 
 		}
@@ -119,18 +87,12 @@ import java.util.HashMap;
 		/*
 		 * returning initialized object
 		 * */
-			return entityObject;
-		}catch(FileNotFoundException e)
+		return entityObject;
+		}catch(IOException e)
 		{
-			System.out.println("file not found"+e);
+			//System.out.println(e);
 			return new Entity[0];
 		}
-		catch(IOException e)
-		{
-			System.out.println("error in reading file,"+e);
-			return new Entity[0];
-		}
-		
 
 		
 	}

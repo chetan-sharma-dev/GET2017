@@ -1,12 +1,6 @@
 package oopssession5;
 
-/*
- * @class Node
- * this class having entry of node
- *  when new Entity created new node also created having parameters as entityId and it's object 
- * */
 public class Node {
-	
 	private int entityId;
 	private Entity entityReference;
 	
@@ -17,11 +11,7 @@ public class Node {
 		this.setEntityReference(entityReference);
 	}
 
-	/*
-	 * @method initailizeAllNodes(Entity[] entityObject,Graph graphObject,Connections connectionObject)
-	 * initializing all node references 
-	 * @return all initialized objects
-	 * */
+	
 	public static Node[] initailizeAllNodes(Entity[] entityObject,Graph graphObject,Connections connectionObject)
 	{
 		int noOfNodeObjects=entityObject.length;
