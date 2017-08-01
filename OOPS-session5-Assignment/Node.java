@@ -1,17 +1,53 @@
-package SocialNetwork;
+package oopssession5;
 
-public interface Node {
+/*
+ * @class Node
+ * this class having entry of node
+ *  when new Entity created new node also created having parameters as entityId and it's object 
+ * */
+public class Node {
 	
-	public void createNode(User obj, String name, String id);
+	private int entityId;
+	private Entity entityReference;
+	
+	
+	public Node(int entityId,Entity entityReference)
+	{
+		this.setEntityId(entityId);
+		this.setEntityReference(entityReference);
+	}
 
-	public void createNode(Organization obj, String name, String id);
+	/*
+	 * @method initailizeAllNodes(Entity[] entityObject,Graph graphObject,Connections connectionObject)
+	 * initializing all node references 
+	 * @return all initialized objects
+	 * */
+	public static Node[] initailizeAllNodes(Entity[] entityObject,Graph graphObject,Connections connectionObject)
+	{
+		int noOfNodeObjects=entityObject.length;
+		Node[] nodeObjects=new Node[noOfNodeObjects];
 		
-	public void addNode(Entity obj);
+		for(int index=0;index<noOfNodeObjects;index++)
+		{
+			nodeObjects[index]=new Node(entityObject[index].getEntityId(),entityObject[index]);
+			graphObject.addNodeInGraph(nodeObjects[index]);
+		}
+		return nodeObjects;
+	}
 	
-	public boolean checkNode(String id);
 	
-	public void editNode(String id,String name);
+	public int getEntityId() {
+		return entityId;
+	}
+	public void setEntityId(int entityId) {
+		this.entityId = entityId;
+	}
+	public Entity getEntityReference() {
+		return entityReference;
+	}
+	public void setEntityReference(Entity entityReference) {
+		this.entityReference = entityReference;
+	}
 	
-	public void deleteNode(String id);
 	
 }
