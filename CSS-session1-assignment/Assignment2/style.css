@@ -1,5 +1,5 @@
 body{
-	margin: 25px; 
+	margin: 1%; 
 	background: url(background.jpg);
 }
 ul{
@@ -89,4 +89,4 @@ ul,.menuList{
 }
 #heading{font-size: 30px; font-weight: bold;}
 #heading,#slogan{font-family: Arial;}
-.navLinks:hover{background:red;}
+.navLinks:hover{background:yellow;}
