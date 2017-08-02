@@ -8,8 +8,9 @@ padding:0%;
 }
 .header{
 	display: flex;
+	width:100%;
 	background: #2D3E50;
-	
+	position:fixed;
 }
 .name{
 	text-transform: uppercase;
