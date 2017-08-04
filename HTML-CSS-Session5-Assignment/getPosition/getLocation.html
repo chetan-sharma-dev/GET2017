@@ -1,15 +1,30 @@
 <!DOCTYPE html>
 <html>
+<head>
+	<title>Current Location</title>
+	<style>
+		.button-div{
+			height:50px;
+			width:200px;
+		}
+		.button-style{
+			height:100%;
+			width:100%;
+			background-color:skyblue;
+			color:white;
+			font-size:20px;
+			font-weight:bold;
+		}
+		
+	</style>
+</head>
 <body>
-
-<p id="demo">Click the button to get your position.</p>
-
-<button onclick="getLocation()">Try It</button>
-
-<div id="mapholder"></div>
-
+	<div class="button-div"><button onclick="getLocation()" class="button-style">Get Your Position</button></div>
+	<p id="dimensions"></p>
+	<div id="mapholder" class="map-container">Click on GET Your Position to get Longitude and Latitude along with map</div>
+	
 <script>
-var x = document.getElementById("demo");
+var x = document.getElementById("dimensions");
 
 function getLocation() {
     if (navigator.geolocation) {
@@ -21,9 +36,10 @@ function getLocation() {
 
 function showPosition(position) {
     var latlon = position.coords.latitude + "," + position.coords.longitude;
-
+	x.innerHTML = "Latitude: " + position.coords.latitude + 
+    "<br>Longitude: " + position.coords.longitude;
     var img_url = "https://maps.googleapis.com/maps/api/staticmap?center="
-    +latlon+"&zoom=14&size=400x300&sensor=false&key=AIzaSyBu-916DdpKAjTmJNIgngS6HL_kDIKU0aU";
+    +latlon+"&zoom=14&size=500x400&sensor=false&key=AIzaSyBu-916DdpKAjTmJNIgngS6HL_kDIKU0aU";
     document.getElementById("mapholder").innerHTML = "<img src='"+img_url+"'>";
 }
 
