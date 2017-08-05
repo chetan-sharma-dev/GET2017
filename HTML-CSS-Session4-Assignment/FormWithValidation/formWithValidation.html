@@ -1,0 +1,183 @@
+<html>
+<head>
+	<title>Contact US</title>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"/>
+	<link rel="stylesheet" type="text/css" href="style.css"/>
+</head>
+<body>
+	<div class="form-header"><h3> Contact Us Today!</h3></div>
+	<div class="main-container">
+		<div class="empty-div">
+		</div>
+		<div class="form-block">
+			<form action="">
+					<div class="form-row">
+						<div class="form-input-label">First Name<sup>*</sup></div>
+						<div class="form-input-block">
+							<span class="icon"><i class="fa fa-user icon-image" ></i></span>
+							<span class="input-box"><input class="input-field" type="text" name="firstname" pattern="[a-zA-Z]+" placeholder="First Name" size="30" required /></span>
+						</div>
+					</div>
+					
+					<div class="form-row">
+						<div class="form-input-label">Last Name<sup>*</sup></div>
+						<div class="form-input-block">
+							<span class="icon">
+								<i class="fa fa-user icon-image"></i>
+							</span>
+							<span class="input-box">
+								<input class="input-field" type="text" name="lastname" pattern="[a-zA-Z]+" placeholder="Last Name" size="30" required />
+							</span>
+						</div>
+					</div>
+					
+					<div class="form-row">
+						<div class="form-input-label">
+								E-mail<sup>*</sup>
+						</div>
+						<div class="form-input-block">
+							<span class="icon">
+								<i class="fa fa-envelope icon-image"></i>
+							</span>
+							<span class="input-box">
+								<input class="input-field" type="email" name="email" placeholder="E-mail Address" size="30" required/>
+							</span>
+						</div>
+					</div>
+					
+					<div class="form-row">
+						<div class="form-input-label">
+									Phone<sup>*</sup> 
+						</div>
+						<div class="form-input-block">
+							<span class="icon">
+									<i class="fa fa-phone icon-image"></i>
+							</span>
+							<span class="input-box">
+								<input class="input-field" type="phone" name="phone"  placeholder="(845)555-1212" size="30" pattern="[0-9]{6,12}" required title="Enter number between 6-12 digits"/>
+							</span>
+						</div>
+					</div>
+					
+					<div class="form-row">
+						<div class="form-input-label">
+							Address <sup>*</sup> 
+						</div>
+						<div class="form-input-block">
+							<span class="icon">
+									<i class="fa fa-home icon-image"></i>
+							</span>
+							<span class="input-box">
+								<input class="input-field" type="text" name="address" placeholder="Address" minlength="10" maxlength="30" required />
+							</span>
+						</div>
+					</div>
+					
+					<div class="form-row">
+						<div class="form-input-label">
+								City<sup>*</sup> 
+						</div>
+						<div class="form-input-block">
+							<span class="icon">
+									<i class="fa fa-home icon-image"></i>
+							</span>
+							<span class="input-box">
+								<input class="input-field" type="text" name="city" placeholder="City" size="30" required/>
+							</span>
+						</div>
+					</div>
+					
+					<div class="form-row">
+						<div class="form-input-label">
+							State <sup>*</sup> 
+						</div>
+						<div class="form-input-block">
+							<span class="icon">
+									<i class="fa fa-list icon-image"></i>
+							</span>
+							<span class="input-box">
+									<select class="input-field" name="state" required>
+												<option value="" disabled selected hidden>Select a State</option>	
+												 <option value="Rajasthan">Rajasthan</option>
+												  <option value="Bihar">Bihar</option>
+												  <option value="Maharashtra">Maharashtra</option>
+												  <option value="Gujarat">Gujarat</option>
+									</select>
+							</span>
+						</div>
+					</div>
+					
+					<div class="form-row">
+						<div class="form-input-label">
+								Zip Code <sup>*</sup> 
+						</div>
+						<div class="form-input-block">
+							<span class="icon">
+										<i class="fa fa-home icon-image"></i>
+							</span>
+							<span class="input-box">
+									<input class="input-field" type="phone" name="zipcode" placeholder="Zip Code" size="30" pattern="[0-9]{6,8}" title="Enter valid code between 6-8 digits" required/>
+							</span>
+						</div>
+					</div>
+					
+					<div class="form-row">
+						<div class="form-input-label">
+								Website or domain name <sup>*</sup>
+						</div>
+						<div class="form-input-block">
+							<span class="icon">
+									<i class="fa fa-globe icon-image"></i>
+							</span>
+							<span class="input-box">
+									<input class="input-field" type="url" name="websiteordomain" placeholder="Website or domain name" size="30" required/>
+							</span>
+						</div>
+					</div>
+					
+					<div class="form-row hosting-question" >
+						<div class="form-input-label">
+								Do you have hosting? <sup>*</sup>
+						</div>
+						<div class="form-input-block " >
+							<span class="icon" >
+								<input type="radio" value="Yes" name="radio" required/>Yes<br/>
+								<input type="radio"  value="No" name="radio" required/>No
+							</span>
+							
+						</div>
+					</div>
+					
+					<div class="form-row project-description">
+						<div class="form-input-label">
+								Project Description <sup>*</sup>
+						</div>
+						<div class="form-input-block">
+							<span class="icon">
+									<i class="fa fa-pencil icon-image"></i>
+							</span>
+							<span class="input-box">
+									<textarea class="input-field form-text-area" rows="3" cols="32" name="description" placeholder="Project Description" required></textarea>
+							</span>
+						</div>
+					</div>
+					
+					<div class="form-row">
+						<div class="form-input-label">
+								
+						</div>
+						<div class="form-input-block form-submit-button-div" >
+							
+							<span>
+								<button class="form-submit-button" type="submit"> Send <i class="fa fa-paper-plane"></i>
+							</span>
+						</div>
+					</div>
+				</form>
+		</div>
+
+		<div class="empty-div">
+		</div>
+	</div>
+</body>
+</html>
