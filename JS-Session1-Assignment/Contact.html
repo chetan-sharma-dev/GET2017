@@ -2,6 +2,7 @@
 <html>
 <head>
 	<title>HTML 5</title>
+	<script  type="text/javascript" src="script.js" ></script>
 </head>
 <body>
 <!--header-->
@@ -9,11 +10,11 @@
 			<tr>
 				<td align="left" width="50%"><img src="HTML logo.png" height="30%"></td>
 				<td align="right" width="50%">
-					<a href="#">Home</a>
-					<a href="#">About</a>
-					<a href="#">Product</a>
-					<a href="#">Gallery</a>
-					<a href="#">Contact</a>
+					<a onclick="redirect('home.html')">Home |</a>
+					<a onclick="redirect('home.html')">About |</a>
+					<a onclick="redirect('home.html')">Product |</a>
+					<a onclick="redirect('home.html')">Gallery |</a>
+					<a onclick="redirect('Contact.html')">Contact</a>
 				</td>
 			</tr>
 </table>
@@ -29,24 +30,38 @@
 <br/>
 <!--contact us form-->	
 
-<table  align="center" border="0" width="40%" >
+<table  align="center" border="0" width="50%" >
 	<form>
 		<tr>
-			<td align="left" width="40%">First Number  </td>
+			<td></td>
+			<td>
+				<span id="error-message"></span>
+			</td>
+			<td></td>
+		</tr>
+		<tr>
+			<td align="left" width="40%">First Name  </td>
 			<td align="left">
-				<input type="text" name="firstname">
+				<input type="text" id="first-name" name="firstname" onblur="validate('first-name')"/>
+			</td>
+			<td>
+				<span id="first-name-error-span"></span>
 			</td>
 		</tr>
 		<tr>
 			<td align="left" width="40%">Email Id  </td>
 			<td align="left">
-				<input type="text" name="mailId">
+				<input type="text" name="mail-id" id="mail-id" onblur="validate('mail-id')"/>
+			</td>
+			<td>
+				<span id="mail-id-error-span"></span>
 			</td>
 		</tr>
 		<tr>
 			<td align="left" width="40%">City  </td>
 			<td align="left">
-				<select name="cities">
+				<select name="city" id="city" onblur="validate('city')">
+					<option value="">Choose Option</option>
 					<option value="Jaipur">Jaipur</option>
 					<option value="Sikar">Sikar</option>
 					<option value="Jaisalmer">Jaisalmer</option>
@@ -56,28 +71,43 @@
 					<option value="Udaipur">Udaipur</option>
 				</select>
 			</td>
+			<td>
+				<span id="city-error-span"></span>
+			</td>
 		</tr>
 		<tr>
 			<td align="left" width="40%">Organisation Name  </td>
 			<td align="left">
-				<input type="text" name="organisationName">
+				<input type="text" name="organization-name" id="organization-name" onblur="validate('organization-name')"/>
+			</td>
+			<td>
+				<span id="organization-name-error-span"></span>
 			</td>
 		</tr>
 		<tr>
 			<td align="left" width="40%">Contact Number </td>
 			<td align="left">
-				<input type="text" name="contactNumber" >
+				<input type="text" name="contact-number"  id="contact-number" onblur="validate('contact-number')"/>
+			</td>
+			<td>
+				<span id="contact-number-error-span"></span>
 			</td>
 		</tr>
 		<tr>
 			<td align="left" width="40%">Message  </td>
 			<td align="left">
-				<input type="textarea" name="message">
+				<input type="textarea" name="message" id="message" onblur="validate('message')"/>
+			</td>
+			<td>
+				<span id="message-error-span"></span>
 			</td>
 		</tr>
 		<tr>
-			<td align="center" colspan="2" >
-				<input type="submit" value="submit query form">
+			<td></td>
+			<td align="left" colspan="1" >
+				<input type="button" value="submit query form" onclick="checkAllInput()"/>
+			</td>
+			<td>
 			</td>
 		</tr>
 	</form>
