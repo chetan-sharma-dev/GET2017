@@ -5,7 +5,7 @@ function redirect(URL)
 function validateCharString(inputString)
 			{
 				
-				expectedCharPattern = new RegExp("^([a-zA-Z]*)$");
+				expectedCharPattern = new RegExp("^([a-zA-Z]+)$");
 				if (expectedCharPattern.test(inputString))
 				{
 					return true;
@@ -78,22 +78,35 @@ function validateEmailId(inputBoxId)
 				
 				
 		}
+		
+		var phoneNoDigits=0;
 function validateContactNumber(inputBoxId)
 	{
+		phoneNoDigits++;
 		inputNumberString=document.getElementById(inputBoxId).value;
 		expectedNumberPattern = new RegExp("^([0-9]{10})$");
 		errorSpanId=inputBoxId+"-error-span";
-		
+	
 				if (!expectedNumberPattern.test(inputNumberString))
 				{
-					showError(errorSpanId,"Invalid Number input");
+					showError(errorSpanId,"Invalid Number input,read Instructions");
 				}
 				else
 				{
 						clearSpan(errorSpanId);
 				}
+	if(phoneNoDigits==1)
+		{
+			//alert(phoneNoDigits);
+			expectedFirstDigitPattern = new RegExp("^([6-9])$");
+			if(!expectedFirstDigitPattern.test(inputNumberString))
+			{
+				showError(errorSpanId,"No should start with 7,8 or 9");
+			}
+		}
 			
-	}		
+	}
+	
 function validateMessage(inputBoxId)
 {
 		inputString=document.getElementById(inputBoxId).value;
@@ -122,8 +135,13 @@ function validateSelectedCity(inputBoxId)
 		if(inputString.length==0)
 		{
 				showError(errorSpanId,"No City Selected");
+				//document.getElementById("selected-city").style.display="none";
+			
 		}
 		else{
+				
+				document.getElementById("selected-city").style.display="block";
+				document.getElementById("selected-city").value="Selected city : "+inputString;
 				clearSpan(errorSpanId);
 		}
 		
@@ -155,7 +173,7 @@ function validate(inputBoxId)
 		case 'organization-name':
 					validateOrganizationName(inputBoxId) ;
 						break;
-		case 'conntact-number':
+		case 'contact-number':
 					validateContactNumber(inputBoxId);
 						break;
 		case 'message': 

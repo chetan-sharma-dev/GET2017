@@ -3,6 +3,9 @@
 <head>
 	<title>HTML 5</title>
 	<script  type="text/javascript" src="script.js" ></script>
+	<style>
+	
+	</style>
 </head>
 <body>
 <!--header-->
@@ -42,7 +45,7 @@
 		<tr>
 			<td align="left" width="40%">First Name  </td>
 			<td align="left">
-				<input type="text" id="first-name" name="firstname" onblur="validate('first-name')"/>
+				<input type="text" id="first-name" name="firstname" onblur="validate('first-name')" title="enter character only, Maximum 20 character allowed"/>
 			</td>
 			<td>
 				<span id="first-name-error-span"></span>
@@ -51,7 +54,7 @@
 		<tr>
 			<td align="left" width="40%">Email Id  </td>
 			<td align="left">
-				<input type="text" name="mail-id" id="mail-id" onblur="validate('mail-id')"/>
+				<input type="text" name="mail-id" id="mail-id" onblur="validate('mail-id')" title="enter valid email e.g. xy@xy.xy "/>
 			</td>
 			<td>
 				<span id="mail-id-error-span"></span>
@@ -60,8 +63,8 @@
 		<tr>
 			<td align="left" width="40%">City  </td>
 			<td align="left">
-				<select name="city" id="city" onblur="validate('city')">
-					<option value="">Choose Option</option>
+				<select name="city" id="city" onblur="validate('city')" title='choose valid option'>
+					<option value="" selected disabled style="display:none;"></option>
 					<option value="Jaipur">Jaipur</option>
 					<option value="Sikar">Sikar</option>
 					<option value="Jaisalmer">Jaisalmer</option>
@@ -76,9 +79,17 @@
 			</td>
 		</tr>
 		<tr>
+			<td align="left" width="40"></td>
+			<td align="left">
+				<input type="text" id="selected-city" style="display:none;" disabled/>
+			</td>
+			<td>
+			</td>
+		</tr>
+		<tr>
 			<td align="left" width="40%">Organisation Name  </td>
 			<td align="left">
-				<input type="text" name="organization-name" id="organization-name" onblur="validate('organization-name')"/>
+				<input type="text" name="organization-name" id="organization-name" onblur="validate('organization-name')" title='enter character input only'/>
 			</td>
 			<td>
 				<span id="organization-name-error-span"></span>
@@ -87,16 +98,17 @@
 		<tr>
 			<td align="left" width="40%">Contact Number </td>
 			<td align="left">
-				<input type="text" name="contact-number"  id="contact-number" onblur="validate('contact-number')"/>
+				<input type="text" name="contact-number"  id="contact-number" onblur="validate('contact-number')" title='enter mobile no of length 10'/>
 			</td>
 			<td>
 				<span id="contact-number-error-span"></span>
 			</td>
 		</tr>
+		
 		<tr>
 			<td align="left" width="40%">Message  </td>
 			<td align="left">
-				<input type="textarea" name="message" id="message" onblur="validate('message')"/>
+				<input type="textarea" name="message" id="message" onblur="validate('message')" title='enter character message, maximum 200 char allowed'/>
 			</td>
 			<td>
 				<span id="message-error-span"></span>
