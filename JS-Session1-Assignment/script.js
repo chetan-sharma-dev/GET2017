@@ -5,7 +5,7 @@ function redirect(URL)
 function validateCharString(inputString)
 			{
 				
-				expectedCharPattern = new RegExp("^([a-zA-Z]+)$");
+				expectedCharPattern = new RegExp("([a-zA-Z]+)");
 				if (expectedCharPattern.test(inputString))
 				{
 					return true;
@@ -64,7 +64,7 @@ function validateOrganizationName(inputBoxId)
 function validateEmailId(inputBoxId)
 		{
 				inputEmailString=document.getElementById(inputBoxId).value;
-				expectedEmailPattern = new RegExp("^([a-zA-Z0-9.]+@[a-zA-Z]+.[a-zA-Z]{2,})$");
+				expectedEmailPattern = new RegExp("([a-zA-Z0-9.]+@[a-zA-Z]+.[a-zA-Z]{2,})");
 				errorSpanId=inputBoxId+"-error-span";
 		
 				if (!expectedEmailPattern.test(inputEmailString))
@@ -79,12 +79,12 @@ function validateEmailId(inputBoxId)
 				
 		}
 		
-		var phoneNoDigits=0;
+		
 function validateContactNumber(inputBoxId)
 	{
-		phoneNoDigits++;
+		
 		inputNumberString=document.getElementById(inputBoxId).value;
-		expectedNumberPattern = new RegExp("^([0-9]{10})$");
+		expectedNumberPattern = new RegExp("([6-9][0-9]{9})");
 		errorSpanId=inputBoxId+"-error-span";
 	
 				if (!expectedNumberPattern.test(inputNumberString))
@@ -95,15 +95,7 @@ function validateContactNumber(inputBoxId)
 				{
 						clearSpan(errorSpanId);
 				}
-	if(phoneNoDigits==1)
-		{
-			//alert(phoneNoDigits);
-			expectedFirstDigitPattern = new RegExp("^([6-9])$");
-			if(!expectedFirstDigitPattern.test(inputNumberString))
-			{
-				showError(errorSpanId,"No should start with 7,8 or 9");
-			}
-		}
+	
 			
 	}
 	
@@ -119,10 +111,10 @@ function validateMessage(inputBoxId)
 		else{
 				showError(errorSpanId,"Invalid character input in message");			
 		}
-		expectedLength=200;
+		expectedLength=250;
 			if(!validateLength(inputString,expectedLength))
 			{
-				showError(errorSpanId,document.getElementById(errorSpanId).innerHTML+", Length exceeds 200");		
+				showError(errorSpanId,document.getElementById(errorSpanId).innerHTML+", Length exceeds 250");		
 				
 			}
 	
