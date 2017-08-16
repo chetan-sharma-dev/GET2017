@@ -6,8 +6,7 @@ function sum(x,y){
 			
 			return parseInt(x)+parseInt(y);
 		}
-		catch(Error)
-		{
+		catch(Error){
 			return 'Error : Passed Parameters are not Integer ';
 		}
 	}
@@ -16,8 +15,7 @@ function sum(x,y){
 			try{
 				return parseInt(x)+parseInt(y);
 			}
-			catch(Error)
-			{
+			catch(Error){
 				return 'Error : Passed Parameters are not Integer ';
 			}
 			

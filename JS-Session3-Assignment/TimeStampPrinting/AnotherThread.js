@@ -1,5 +1,5 @@
 
-    setTimeout(function(){var d=new Date(); postMessage(d);},1000);
+    setTimeout(function(){var d=new Date(); postMessage(d);},2*60*1000);
 	
 
 
