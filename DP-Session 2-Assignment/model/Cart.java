@@ -71,7 +71,7 @@ public class Cart extends BaseEntity{
 		orderedItemObject.setQuantity(productQuantity);
 		orderedItemObject.setTotalPrice(productQuantity*productObject.getProductCost());
 		orderedItems.replace(productObject.getProductCode(),orderedItemObject);
-		System.out.println(orderedItems.keySet()+","+orderedItems.values());
+		
 	}
 	
 }

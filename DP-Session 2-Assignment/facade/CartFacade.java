@@ -173,7 +173,7 @@ public class CartFacade {
 			Product productObject=InMemoryProductDao.getInstance().getProductObjectByProductCode(productCode);
 			cartObject.updateItemInCart(productObject, productQuantity);
 			cartFacadeObject.totalCalculation();
-			return "Successfully Updated Quntity";
+			return "Successfully Updated Quantity";
 		}
 		else
 		{
@@ -233,33 +233,4 @@ public class CartFacade {
 		return getAllProductCodesInCart().contains(productCode);
 	}
 	
-/*	public static void main(String...s)
-	{
-		//cartFacadeObject=CartFacade.getInstance();
-		Scanner sc=new Scanner(System.in);
-			String inp=sc.nextLine();
-			int a= sc.nextInt();
-		CartFacade.getInstance().addItem(inp,a);
-		CartFacade.getInstance().addItem("1001", 20);
-		CartFacade.getInstance().addItem("1001", 21);
-		System.out.println(CartFacade.getInstance().getAllCartItems().toString());
-		System.out.println("totalCost"+totalCost);
-		System.out.println();
-		
-		cartFacadeObject.updateCartItem("1001",10);
-		System.out.println(cartFacadeObject.getAllCartItems().toString());
-		System.out.println("totalCost"+totalCost);
-		System.out.println();
-		
-		CartFacade.getInstance().deleteItem("1001");
-		System.out.println(CartFacade.getInstance().getAllCartItems().toString());
-		System.out.println("totalCost"+totalCost);
-		System.out.println();
-		
-		CartFacade.getInstance().deleteItem("1002");
-		System.out.println(CartFacade.getInstance().getAllCartItems().toString());
-		System.out.println("totalCost"+totalCost);
-		System.out.println("");
-	}*/
-
 }
