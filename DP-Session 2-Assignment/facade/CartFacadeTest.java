@@ -20,9 +20,5 @@ public class CartFacadeTest {
 		assertEquals(true,actualOutput);
 	}
 	
-	@Test
-	public void addElementPositiveTestCase()
-	{
-		
-	}
+	
 }
