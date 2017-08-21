@@ -1,7 +1,7 @@
-package com.metacube.model;
+package model;
 /**
- * @class Product
- * class having all product parameters 
+ * @class
+ * class for holding product details 
  * */
 public class Product extends BaseEntity {
 	private String productCode;
@@ -12,24 +12,18 @@ public class Product extends BaseEntity {
 		
 	}
 	
-	/*
-	 * parameterized constructor initializing product properties
-	 * */
-	public Product(String productCode,String productName,Double productCost){
-		this.productCode=productCode;
+	public Product(String ProductCode,String productName,Double productCost){
+		this.productCode=ProductCode;
 		this.productName=productName;
 		this.productCost=productCost;
 	}
 
-	/*
-	 * getter and setter methods for product properties 
-	 * */
 	public String getProductCode() {
 		return productCode;
 	}
 
-	public void setProductCode(String productCode) {
-		this.productCode = productCode;
+	public void setProductCode(String ProductCode) {
+		this.productCode = ProductCode;
 	}
 
 	public String getProductName() {
@@ -47,11 +41,11 @@ public class Product extends BaseEntity {
 	public void setProductCost(Double productCost) {
 		this.productCost = productCost;
 	}
-	
 	@Override
 	public String toString() {
 		
-		return productCode+"--->"+productName+"--->"+productCost;
+		return productCode+" "+productName+" "+productCost;
 	}
 		
+	
 }

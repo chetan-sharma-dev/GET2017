@@ -1,4 +1,4 @@
-package com.metacube.enums;
+package enums;
 
 public enum DBType {
 	InMemory, MySql;

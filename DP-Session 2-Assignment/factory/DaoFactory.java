@@ -1,14 +1,17 @@
-package com.metacube.dao;
+package factory;
 
-import com.metacube.enums.DBType;
-import com.metacube.enums.EntityName;
+import dao.BaseDao;
+import dao.InMemoryProductDao;
+import enums.DBType;
+import enums.EntityName;
 /**
- * Dao Factory is used to get Object of Dao
+ * @class
+ * factory class for getting Object of Dao
  * */
 public class DaoFactory {
 	/**
-	 * @method getDaoforEntity(EntityName entityName, DBType dBType)
-	 * this method gives object of dedicated class
+	 * @method getDaoforEntity()
+	 * returning object of dao of Base DaoType 
 	 * */
 	public static  BaseDao<?> getDaoforEntity(EntityName entityName, DBType dBType) {
 		if(entityName == EntityName.Product) {
@@ -16,7 +19,7 @@ public class DaoFactory {
 				 return InMemoryProductDao.getInstance();
 				
 			} 
-		} 
+		}
 		return null;
 	}
 }
