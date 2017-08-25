@@ -72,7 +72,7 @@ public class TestCases<E> {
 		binaryTreeObject2.insertInRightSkewedBinaryTree(50);
 		binaryTreeObject2.insertInRightSkewedBinaryTree(60);
 		binaryTreeObject2.insertInRightSkewedBinaryTree(70);
-		boolean actualOutput=binaryTreeObject.whetherMirrorOrNot(binaryTreeObject.getRoot(), binaryTreeObject2.getRoot());
+		boolean actualOutput=binaryTreeObject.isMirrorOrNot(binaryTreeObject.getRoot(), binaryTreeObject2.getRoot());
 		boolean expectedOutput=true;
 		assertEquals(actualOutput,expectedOutput);
 	}
@@ -87,7 +87,7 @@ public class TestCases<E> {
 		binaryTreeObject2.insertInRightSkewedBinaryTree(50);
 		binaryTreeObject2.insertInRightSkewedBinaryTree(70);
 		binaryTreeObject2.insertInRightSkewedBinaryTree(60);
-		boolean actualOutput=binaryTreeObject.whetherMirrorOrNot(binaryTreeObject.getRoot(), binaryTreeObject2.getRoot());
+		boolean actualOutput=binaryTreeObject.isMirrorOrNot(binaryTreeObject.getRoot(), binaryTreeObject2.getRoot());
 		boolean expectedOutput=false;
 		assertEquals(actualOutput,expectedOutput);
 	}

@@ -262,11 +262,11 @@ public class BinaryTree <E> {
 	}
 	
 	/**
-	 * @method whetherMirrorOrNot()
+	 * @method isMirrorOrNot()
 	 * method for fining whether given two subtrees are mirror or not
 	 * @return true, if both subtrees are mirror else, return false
 	 * */
-	public boolean whetherMirrorOrNot(Node<E> currentNodeOfFirstTree,Node<E> currentNodeOfSecondTree)
+	public boolean isMirrorOrNot(Node<E> currentNodeOfFirstTree,Node<E> currentNodeOfSecondTree)
 	{
 		/*
 		 * if both tree current position is null than returning true 
@@ -285,9 +285,9 @@ public class BinaryTree <E> {
 		}
 		else if(currentNodeOfFirstTree.getData().equals(currentNodeOfSecondTree.getData()))
 		{
-			if(!whetherMirrorOrNot(currentNodeOfFirstTree.getLeftChild(), currentNodeOfSecondTree.getRightChild()))
+			if(!isMirrorOrNot(currentNodeOfFirstTree.getLeftChild(), currentNodeOfSecondTree.getRightChild()))
 				return false;
-			if(!whetherMirrorOrNot(currentNodeOfFirstTree.getRightChild(),currentNodeOfSecondTree.getLeftChild()))
+			if(!isMirrorOrNot(currentNodeOfFirstTree.getRightChild(),currentNodeOfSecondTree.getLeftChild()))
 				return false;
 			return true;
 		}else{
@@ -303,7 +303,42 @@ public class BinaryTree <E> {
 	public void clearTree(){
 		this.root=null;
 	}
-	
+	public static void main(String[] args) {
+		//System.out.println("General Tree");
+		BinaryTree<Integer> bstObject=new BinaryTree<Integer>();
+		
+		bstObject.insertInLeftSkewedBinaryTree(10);
+		bstObject.insertInLeftSkewedBinaryTree(20);
+		bstObject.insertInLeftSkewedBinaryTree(30);
+		bstObject.insertInLeftSkewedBinaryTree(40);
+		bstObject.insertInLeftSkewedBinaryTree(50);
+		bstObject.insertInLeftSkewedBinaryTree(60);
+		bstObject.insertInLeftSkewedBinaryTree(70);
+		
+		System.out.println(bstObject.getPreOrder());
+		System.out.println(bstObject.getInOrder());
+		System.out.println(bstObject.getPostOrder());
+
+		System.out.println("Miorrored tree");
+		BinaryTree<Integer> bstObject1=new BinaryTree<Integer>();
+		
+		bstObject1.insertInRightSkewedBinaryTree(10);
+		bstObject1.insertInRightSkewedBinaryTree(20);
+		bstObject1.insertInRightSkewedBinaryTree(30);
+		bstObject1.insertInRightSkewedBinaryTree(40);
+		bstObject1.insertInRightSkewedBinaryTree(50);
+		bstObject1.insertInRightSkewedBinaryTree(60);
+		bstObject1.insertInRightSkewedBinaryTree(70);
+
+		System.out.println(bstObject1.getPreOrder());
+		System.out.println(bstObject1.getInOrder());
+		bstObject1.clearTree();
+		System.out.println(bstObject1.getPostOrder());
+		
+		System.out.println(bstObject.isMirrorOrNot(bstObject.root, bstObject1.root));
+		
+		
+	}
 
 	
 }
