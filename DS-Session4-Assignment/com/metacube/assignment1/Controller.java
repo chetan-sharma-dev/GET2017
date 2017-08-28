@@ -1,14 +1,38 @@
 package com.metacube.assignment1;
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
-
+/**
+ * @class Controller
+ * */
 public class Controller {
+	/*
+	 * creating scanner and PrintingJobPool common object 
+	 * */
 		Scanner scanInput=new Scanner(System.in);
 		private PrintingJobPool printerObject;
 
+	/**
+	 * @Constructor Controller()
+	 * constructor initializing objects; 
+	 * */
 		public Controller() {
 			printerObject=new PrintingJobPool();
 		}
+		
+		public int takeIntegerUserinput(){
+			try{
+				scanInput=new Scanner(System.in);
+				return scanInput.nextInt();
+			}catch(InputMismatchException e){
+				System.out.println("Invalid input");
+				return takeIntegerUserinput();
+			}
+		}
+	/**
+	 * @method takeUserTypeAndRequestPrinting()
+	 * method for showing menu and taking user input
+	 * */
 	public void takeUserTypeAndRequestPrinting(){
 	
 		System.out.println("Select Your Designation \n"
@@ -16,7 +40,7 @@ public class Controller {
 				+ "2.Graduate \n"
 				+ "3.Professor \n"
 				+ "4.Department Chair");
-		int requesterChoiceInput=scanInput.nextInt();
+		int requesterChoiceInput=takeIntegerUserinput();
 		 scanInput.nextLine();
 		String requesterDocumentData ="";
 			if(requesterChoiceInput>=1&&requesterChoiceInput<=4)
@@ -32,13 +56,17 @@ public class Controller {
 			
 	}
 	
+	/**
+	 * @method printMenu()
+	 * method printing Menu 
+	 * */
 	public void printMenu()
 	{
 		System.out.println("Select Operation you want to do\n"
 				+ "1. Request Print \n"
 				+ "2. Print All Jobs \n"
 				+ "3. Exit");
-			int requesterChoiceInput=scanInput.nextInt();
+			int requesterChoiceInput=takeIntegerUserinput();
 			switch(requesterChoiceInput)
 			{
 				case 1:takeUserTypeAndRequestPrinting(); break;
@@ -49,9 +77,14 @@ public class Controller {
 		printMenu();
 	}
 	
+	/**
+	 * @method printAllJobs()
+	 * method for printing all jobs
+	 * */
 	public void printAllJobs(){
 		printerObject.printAllJobs();
 	}
+	
 	
 	public static void main(String[] args) {
 		Controller controllerObject=new Controller();

@@ -1,24 +1,33 @@
 package com.metacube.assignment1;
-public class Job {
+/**
+ * @class
+ * class for printing Job description
+ * */
+public class PrintingJob {
 	private String requesterType;
 	private int requesterSequenceNo;
 	private String requesterDocumentDataToPrint;
 	private int requesterJobPriority;
-	
-	public Job() {
+	/**
+	 * @constructor 
+	 * initializing all values
+	 * */
+	public PrintingJob() {
 		this.requesterType=null;
 		this.requesterSequenceNo=0;
 		this.requesterDocumentDataToPrint=null;
 		this.requesterJobPriority=0;
 	}
-		
-	public Job( String requesterType, int requesterSequenceNo,String requesterDocumentDataToPrint,int requesterJobPriority) {
+	public PrintingJob( String requesterType, int requesterSequenceNo,String requesterDocumentDataToPrint,int requesterJobPriority) {
 		this.requesterType=requesterType;
 		this.requesterSequenceNo=requesterSequenceNo;
 		this.requesterDocumentDataToPrint=requesterDocumentDataToPrint;
 		this.requesterJobPriority=requesterJobPriority;
 	}
 
+	/**
+	 * Getter and Setter Method  
+	 * */
 	public String getRequesterType() {
 		return requesterType;
 	}
@@ -51,8 +60,16 @@ public class Job {
 	public void setRequesterJobPriority(int requesterJobPriority) {
 		this.requesterJobPriority = requesterJobPriority;
 	}
-
+	/**
+	 * @method toString()
+	 * method converting required information 
+	 * */
 	public String toString(){
-		return requesterSequenceNo+","+requesterType +","+requesterJobPriority+","+requesterDocumentDataToPrint;
+		return "----------------------------------------------------------\n"
+				+ "Sequence No :"+requesterSequenceNo+"\n"
+				+ "Request Type :"+requesterType+"\n"
+						+ "Job Priority :"+requesterJobPriority+"\n"
+								+ "Document Data :"+requesterDocumentDataToPrint+"\n"
+										+ "-------------------------------------------------------";
 	}
 }
