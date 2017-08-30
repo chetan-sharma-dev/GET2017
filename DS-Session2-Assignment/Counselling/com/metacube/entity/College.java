@@ -1,5 +1,8 @@
 package com.metacube.entity;
-
+/**
+ * @class
+ * class having college details extending BaseEntity
+ * */
 public class College extends BaseEntity {
 	private int availableSeats;
 	private int totalSeats;
@@ -25,7 +28,9 @@ public class College extends BaseEntity {
 	public void setTotalSeats(int totalSeats) {
 		this.totalSeats = totalSeats;
 	}
-	
+	/**
+	 * overridden method 
+	 * */
 	public String toString(){
 		return this.getId()+"\t\t\t"+this.getName()+"\t\t"+this.getRank()+"\t\t"+this.getAvailableSeats()+"\t\t"+this.getTotalSeats();
 	}

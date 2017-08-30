@@ -1,9 +1,15 @@
 package com.metacube.entity;
+/**
+ *@class abstract class for entities 
+ */
 
 public abstract class BaseEntity {
 	private String name;
 	private String id;
 	private int rank;
+	/**
+	 * all getter and setter methods 
+	 * */
 	public String getName() {
 		return name;
 	}

@@ -1,4 +1,8 @@
 package com.metacube.node;
+/**
+ * @class Node
+ * POJO class for node
+ */
 
 public class Node {
 	
@@ -11,6 +15,9 @@ public class Node {
 		nextNode=null;
 	}
 	
+	/*
+	 * getter and setter method
+	 * */
 	public Object getData() {
 		return data;
 	}

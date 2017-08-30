@@ -82,7 +82,9 @@ public class Stack{
 			return poppedElement;
 		}
 	}
-	
+	/**
+	 * method for getting top element of stack
+	 * */
 	public Object getTopElement(){
 		if(head==null)
 		{

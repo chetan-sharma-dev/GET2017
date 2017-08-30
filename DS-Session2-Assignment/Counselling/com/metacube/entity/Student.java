@@ -3,6 +3,12 @@ package com.metacube.entity;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * @class 
+ * class holding student details extending Base Entity
+ * implementing Comparable Interface for defining comparing to method 
+ * */
+
 public class Student extends BaseEntity implements Comparable{
 	private List<String> filledCoices;
 	private College allotedCollege;
