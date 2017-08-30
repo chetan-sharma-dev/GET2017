@@ -1,5 +1,6 @@
 package com.metacube.main;
 
+import com.metacube.notations.Notations;
 import com.metacube.stack.Stack;
 
 public class Main {
@@ -8,15 +9,18 @@ public class Main {
 		Stack stackObject=new Stack();
 		for(int i=0;i<5;i++)
 		{
-			stackObject.push(1);
-			System.out.println("");
+			stackObject.push(i);
 		}
 		for(int i=0;i<5;i++)
 		{
-			stackObject.pop();
-			System.out.println("");
+			System.out.println(stackObject.pop());
 		}
 	
+		Notations nObject=new Notations();
+		System.out.println(nObject.getPostFixNotation("((123+12)^10)+4*6"));
+		System.out.println(nObject.getPostFixNotation("((a+b*c^d-e)^(f+g*h)-i)"));
+		System.out.println(nObject.getPostFixNotation("1+3-2"));
+		System.out.println();
 		
 	}
 }

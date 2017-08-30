@@ -1,17 +1,31 @@
 package com.metacube.notations;
 
 import com.metacube.stack.Stack;
-
+/**
+ * @class Notations
+ * for getting notations
+ * */
 public class Notations {
 
+	/**
+	 * @method getPostFixNotation()
+	 * method returning postfix Notation for infixNotation 
+	 * */
 	public String getPostFixNotation(String infixNotation)
 	{
+		//instantiating stack
 		Stack stackObject=new Stack();
 		String postfixNotation="";
 		
 		for(int i=0;i<infixNotation.length();i++){
+			// getting dataElement at loop index in infixNotation
 			Character dataElement=infixNotation.charAt(i);
-			
+			/**
+			 * checking whether it is letter or digit if yes, directly add in postfix string
+			 * else if dataElement is ')' ,then pop stack till '(' found
+			 * else if operator found then according to preference push in stack else pop and add  in postfix string 
+			 * else push in stack 
+			 * */
 			if(Character.isLetterOrDigit(dataElement))
 			{
 				postfixNotation+=dataElement;
@@ -37,6 +51,11 @@ public class Notations {
 			}
 			
 		}
+		/*
+		 * at last pop all elements from stack 
+		 * if '(' found returning error 
+		 * else just add in postfix notation 
+		 * */
 		while(stackObject.getTopElement()!=null)
 		{
 			if((char)stackObject.getTopElement()=='(')
@@ -47,6 +66,10 @@ public class Notations {
 		}
 		return postfixNotation;
 	}
+	/**
+	 * @method getPrecedence()
+	 *  method returning precedence according to input operator  
+	 * */
 	 public int getPrecedence(char c){
 		 switch(c)
 		 {
