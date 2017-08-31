@@ -1,5 +1,7 @@
 package com.metacube.assignment1;
 import java.util.InputMismatchException;
+import java.util.Iterator;
+import java.util.List;
 import java.util.Scanner;
 
 /**
@@ -82,7 +84,12 @@ public class Controller {
 	 * method for printing all jobs
 	 * */
 	public void printAllJobs(){
-		printerObject.printAllJobs();
+		List<String> dataToPrint=printerObject.getPrintOfAllJobs();
+		Iterator<String> itr=dataToPrint.iterator();
+		while(itr.hasNext()){
+			System.out.println(itr.next());
+		}
+		
 	}
 	
 	

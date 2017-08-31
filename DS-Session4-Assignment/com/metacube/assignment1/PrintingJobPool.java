@@ -1,5 +1,7 @@
 package com.metacube.assignment1;
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 /**
  * @class PrintingJobPool
@@ -9,6 +11,7 @@ public class PrintingJobPool {
 	private PrintingJob[] printerJobQueue;
 	private int currentSequenceNo;
 	private Map<Integer, String> priorityMap;
+	private final int PRINTER_MAX_BUFFER_SIZE=20;
 	
 	/**
 	 * @constructor PrinterJobPool
@@ -18,7 +21,7 @@ public class PrintingJobPool {
 		/*
 		 * fixed Heap Size
 		 * */
-		printerJobQueue=new PrintingJob[2];
+		printerJobQueue=new PrintingJob[PRINTER_MAX_BUFFER_SIZE];
 		this.currentSequenceNo=1;
 		priorityMap=new HashMap<Integer, String>();
 		priorityMap.put(1,"UNDER GRADUATE");
@@ -45,7 +48,7 @@ public class PrintingJobPool {
 	/**
 	 * @method heapifyJobQueue()
 	 * */
-	public void heapifyJobQueue(int i){
+	private void heapifyJobQueue(int i){
 		/*
 		 * if current node index is positive then iterate 
 		 * */
@@ -111,7 +114,7 @@ public class PrintingJobPool {
 	 * method for building heap
 	 * running from N/2 to 2 , lower the index by 1
 	 * */
-	public void buildHeap(){
+	private void buildHeap(){
 		for(int i=(currentSequenceNo-1)/2;i>=0;i--){
 			heapifyJobQueue(i);
 		}
@@ -120,48 +123,52 @@ public class PrintingJobPool {
 	 * @method heapSort()
 	 * method for sorting given array
 	 * */
-	public void heapSort(){
+	private void heapSort(){
 		/*
 		 * first build heap, then do print Job queue ,lower currentSequenceNo by 1
 		 * heapifyJobQueue at node 0
 		 * */
 		buildHeap();
+		int seqNo=currentSequenceNo;
 		for(int i=currentSequenceNo-2;i>=0;i--){
-			System.out.println();
 			swap(0,i);
-			System.out.println(printerJobQueue[i]);
 			currentSequenceNo--;
 			heapifyJobQueue(0);
 		}
+		currentSequenceNo=seqNo;
+		System.out.println();
 	}
 	/**
 	 * @method printAllJobs()
 	 * method for printing all HeapVariables 
 	 * */
-	public void printAllJobs(){
+	public List<String> getPrintOfAllJobs(){
 		heapSort();
-		for(int i=0;i<currentSequenceNo-1;i++)
+		List<String> dataToPrint=new ArrayList<String>();
+		
+		for(int i=currentSequenceNo-2;i>=0;i--)
 		{
-			System.out.println(printerJobQueue[i]);
+			dataToPrint.add(printerJobQueue[i].toString());
 		}
 		/*
 		 * if currentSequenceNo is 1 then there is nothing in JobQueue, so printing empty job pool message
 		 * else updating current Sequence No with 1
 		 * */
 		if(currentSequenceNo==1){
-			System.out.println("------------------------------------------------");
-			System.out.println("No Job In Job Pool To Print");
-			System.out.println("------------------------------------------------");
-		}else{
+			dataToPrint.add("------------------------------------------------");
+			dataToPrint.add("No Job In Job Pool To Print");
+			dataToPrint.add("------------------------------------------------");
+			}else{
 				currentSequenceNo=1;
 		}
+		return dataToPrint;
 	}
 	
 	/**
 	 * @method swap(index1,index2)
 	 * method for swapping given index values in Job Queue 
 	 * */
-	public void swap(int index1,int index2){
+	private void swap(int index1,int index2){
 		PrintingJob temp=printerJobQueue[index1];
 		printerJobQueue[index1]=printerJobQueue[index2];
 		printerJobQueue[index2]=temp;
