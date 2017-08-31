@@ -1,11 +1,5 @@
 package com.metacube.binarysearch;
 
-import java.util.ArrayList;
-import java.util.List;
-/**
-*@class BinarySearch
-*class for searching element in given array using binary search algorithm
-*/
 public class BinarySearch<E extends Comparable>{
 
 	/**
@@ -58,11 +52,5 @@ public class BinarySearch<E extends Comparable>{
 		return -1;
 	}
 
-	public static void main(String[] args) {
-		BinarySearch<String> obj=new BinarySearch<String>();
-		String[] arr = {"A","Ba","Hello","Hello","Hello","sharma","z"};
-		System.out.println(obj.binarySearch(arr,"Hello"));
-	}
-	
 }
 
