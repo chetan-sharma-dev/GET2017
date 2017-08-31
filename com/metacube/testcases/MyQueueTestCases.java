@@ -16,13 +16,13 @@ public class MyQueueTestCases {
 	}
 
 	@Test
-	public void GivenElement_WhenAdd_ThenTrue() {
+	public void addElemeentPoaitiveTestCase() {
 		boolean actual = queue.add(10);
 		assertEquals(true, actual);
 	}
 
 	@Test
-	public void GivenQueueIsNotEmpty_WhenPeek_ThenFirstElementData() {
+	public void peekPositiveTestCase() {
 		queue.add(10);
 		queue.add(20);
 		int actual = queue.peek();
@@ -30,7 +30,7 @@ public class MyQueueTestCases {
 	}
 
 	@Test
-	public void GivenQueueIsEmpty_WhenPeek_ThenNull() {
+	public void emptyQueueCasePeekTestCase() {
 		assertEquals(null, queue.peek());
 	}
 

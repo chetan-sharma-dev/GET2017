@@ -1,8 +1,10 @@
 package com.metacube.testcases;
 
 import static org.junit.Assert.*;
+
 import java.util.Arrays;
 import java.util.Collection;
+
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -27,21 +29,24 @@ public class ConcordanceTestCases {
 		return Arrays
 				.asList(new Object[][] {
 						{ "Hello World",
-								"r=[7] d=[9] e=[1] W=[5] H=[0] l=[2, 3, 8] o=[4, 6] " },
+								"{ r=[7],d=[9],e=[1],W=[5],H=[0],l=[2, 3, 8],o=[4, 6],}" },
 						{ "AAAAAAAAAAAAAAAA",
-								"A=[0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15] " },
-						{ "", "" }, 
-						{ null, null } });
+								"{ A=[0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15],}" },
+						{ "", "No Concordence Entry Found" },
+						{null,"No Concordence Entry Found"}
+						 });
 	}
 
 	@Parameter(0)
-	public String actual;
+	public String parameterForConcordance;
 	@Parameter(1)
-	public String expected;
+	public String expectedOutput;
 
 	@Test
 	public void GivenMultipleValueWhenGetCharactersMapThenRespectiveResults() {
-		assertEquals(concordance.getCharactersMap(actual), expected);
+		concordance.addString(parameterForConcordance);
+		
+		assertEquals(concordance.getConcodanceOfCharaters(),expectedOutput);
 	}
 
 }
