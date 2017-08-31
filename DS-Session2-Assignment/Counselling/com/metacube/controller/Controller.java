@@ -22,22 +22,39 @@ import com.metacube.queue.MyQueue;
  * */
 public class Controller {
 	private List<Student> listOfStudentObjects;
+	private List<Student> listOfUnallottedStudentObjects;
 	private Map<String,College> mapOfCollegeObjects;
 	private Scanner scanInput;
 	private MyQueue<Student> queueOfStudentsFromRank;
 	
 	/**
 	 * @constructor 
-	 * initializing all datamembers
+	 * initializing all data members
 	 * */
+	@SuppressWarnings("unchecked")
 	public Controller(){
 		StudentDao studentDaoObject=StudentDao.getInstance();
-		listOfStudentObjects = studentDaoObject.getListOfAllStudents();
+		listOfStudentObjects=studentDaoObject.getListOfAllStudents();
+		listOfUnallottedStudentObjects=getAnotherStudentListWithDifferentReference(studentDaoObject.getListOfAllStudents());
 		Collections.sort(listOfStudentObjects);
+		Collections.sort(listOfUnallottedStudentObjects);
 		CollegeDao collegeDaoObject=CollegeDao.getInstance();
 		mapOfCollegeObjects =collegeDaoObject.getColleges();
 		scanInput=new Scanner(System.in);
 		queueOfStudentsFromRank=new MyQueue<Student>();
+	}
+
+	/**
+	 * @method getAnotherStudentListWithDifferentReference()
+	 * method return different reference list for student type
+	 * */
+	public List<Student> getAnotherStudentListWithDifferentReference(List<Student> list){
+		Iterator<Student> itr=list.iterator();
+		List<Student> tempList=new ArrayList<Student>();
+		while(itr.hasNext()){
+			tempList.add(itr.next());
+		}
+		return tempList;
 	}
 
 	/**
@@ -59,8 +76,8 @@ public class Controller {
 	 * method for initializing queue of students from sorted list of student Objects
 	 * */
 	public void initializeQueueOfStudentAccordingToRank(){
-		Collections.sort(listOfStudentObjects);
-		Iterator<Student> itr=listOfStudentObjects.iterator();
+		Collections.sort(listOfUnallottedStudentObjects);
+		Iterator<Student> itr=listOfUnallottedStudentObjects.iterator();
 		while(itr.hasNext()){
 			queueOfStudentsFromRank.enqueue(itr.next());
 		}
@@ -83,23 +100,23 @@ public class Controller {
 	}
 	
 	/**
-	 * @method startCounselling
+	 * @method startCounseling
 	 * method for initiating counseling 
 	 * */
-	public void startCounselling(){
+	public void startCounseling(){
 		/*
 		 * taking input for no of counseling to be done
 		 * */
-		System.out.println("Enter no of counsellings to be done");
-		int noOfCounselling=takeIntegerInput();
+		System.out.println("Enter no of counselings to be done");
+		int noOfcounseling=takeIntegerInput();
 		
 		/*
 		 * doing Counseling 
 		 * */
-		for(int i=0;i<noOfCounselling;i++){
-			System.out.println("###########################################################################");
-			System.out.println("Counselling no "+(i+1));
-			System.out.println("###########################################################################");
+		for(int i=0;i<noOfcounseling;i++){
+			System.out.println("#############################################################################################");
+			System.out.println("counseling no "+(i+1));
+			System.out.println("#############################################################################################");
 			//printing college list 
 			printCollegesList();
 			/*
@@ -128,9 +145,9 @@ public class Controller {
 			 * */
 			printUnallotedStudentList();
 	System.out.println("###########################################################################");
-			
-		}
 	
+		}
+		printAllAllotedStudentList();
 	}
 
 	/**
@@ -157,32 +174,11 @@ public class Controller {
 				 * */
 				studentObject.setAllotedCollege(mapOfCollegeObjects.get(collegeId));
 				mapOfCollegeObjects.get(collegeId).setAvailableSeats(availableSeat-1);
-				listOfStudentObjects.remove(studentObject);
+				listOfUnallottedStudentObjects.remove(studentObject);
 				isSeatAllocated=true;
 			}
 		}
 		
-	}
-	/**
-	 * @method printUnallotedStudentList()
-	 * method for printing list of unallotted student list 
-	 * */
-	public void printUnallotedStudentList(){
-		Iterator<Student> itr=listOfStudentObjects.iterator();
-		System.out.println("---------------------------------------------------------------------------------------------------");
-		System.out.println("Student ID \t Student Name \t Student Rank \t Student filled Choices \t Alloted College");
-		System.out.println("---------------------------------------------------------------------------------------------------");
-		/*
-		 * checking whether there is student with no college alloted
-		 * */
-		if(!itr.hasNext()){
-			System.out.println("No Student left for allotment");
-		}
-		while(itr.hasNext()){
-			System.out.println(itr.next().toString());
-		}
-		System.out.println("---------------------------------------------------------------------------------------------------");
-
 	}
 	
 	/**
@@ -212,7 +208,7 @@ public class Controller {
 			}
 		}
 		
-		/**
+		/*
 		 * checking for duplicate entries
 		 * */
 		Set<String> userChoicesSet=new HashSet<String>(userCollegeChoicesInput);
@@ -222,6 +218,49 @@ public class Controller {
 			return takeUserChoices();
 		}
 		return userCollegeChoicesInput;
+	}
+
+	/**
+	 * @method printUnallotedStudentList()
+	 * method for printing list of unallotted student list 
+	 * */
+	public void printUnallotedStudentList(){
+		Iterator<Student> itr=listOfUnallottedStudentObjects.iterator();
+		System.out.println("---------------------------------------------------------------------------------------------------");
+		System.out.println("Student ID \t Student Name \t Student Rank \t Student filled Choices \t Alloted College");
+		System.out.println("---------------------------------------------------------------------------------------------------");
+		/*
+		 * checking whether there is student with no college alloted
+		 * */
+		if(!itr.hasNext()){
+			System.out.println("No Student left for allotment");
+		}
+		while(itr.hasNext()){
+			System.out.println(itr.next().toString());
+		}
+		System.out.println("---------------------------------------------------------------------------------------------------");
+
+	}
+
+	/**
+	 * @method printAllAllotedStudentList()
+	 * method print list of all allotted student list 
+	 * */
+	public void printAllAllotedStudentList(){
+		StudentDao studentDaoObject=StudentDao.getInstance();
+		List<Student> listOfStudentObjects = studentDaoObject.getListOfAllStudents();
+		Iterator<Student> itr=listOfStudentObjects.iterator();
+		System.out.println("---------------------------------------------------------------------------------------------------");
+		System.out.println("\t\t\t\t List OF All Students with Allotted College  ");
+		System.out.println("---------------------------------------------------------------------------------------------------");
+		System.out.println("Student ID \t Student Name \t Student Rank \t Student filled Choices \t Alloted College");
+		System.out.println("---------------------------------------------------------------------------------------------------");		
+		while(itr.hasNext()){
+			Student studentObject=itr.next();
+			if(studentObject.getAllotedCollege()!=null)
+				System.out.println(studentObject.toString());
+		}
+		System.out.println("---------------------------------------------------------------------------------------------------");
 	}
 	
 	

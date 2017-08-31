@@ -16,10 +16,12 @@ public class Main {
 			System.out.println(stackObject.pop());
 		}
 	
-		Notations nObject=new Notations();
-		System.out.println(nObject.getPostFixNotation("((123+12)^10)+4*6"));
-		System.out.println(nObject.getPostFixNotation("((a+b*c^d-e)^(f+g*h)-i)"));
-		System.out.println(nObject.getPostFixNotation("1+3-2"));
+		Notations notationObject=new Notations();
+		System.out.println(notationObject.getPostFixNotation("((123+12)^10)+4*6"));
+		System.out.println(notationObject.getPostFixNotation("(123+12)^10)+4*6"));
+		System.out.println(notationObject.getPostFixNotation("((123+12)^10+4*6"));
+		System.out.println(notationObject.getPostFixNotation("((a+b*c^d-e)^(f+g*h)-i)"));
+		System.out.println(notationObject.getPostFixNotation("1+3-2"));
 		System.out.println();
 		
 	}
