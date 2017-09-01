@@ -1,0 +1,6 @@
+S01,Chetan,1
+S02,Amit,3
+S03,Aman,2
+S04,Ram,5
+S05,Shyam,4
+S06,Raman,6
