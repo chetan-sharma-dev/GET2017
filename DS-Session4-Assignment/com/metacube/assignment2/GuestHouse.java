@@ -39,7 +39,7 @@ public class GuestHouse {
 		 * and updating all parameters
 		 * else, returning Appropriate ERROR message
 		 * */
-			if(checkAvailabilityAndAllocateTheRoom(hashCode(age),customerObject)){
+			if(checkAvailabilityAndAllocateTheRoom(getRoomNo(age),customerObject)){
 				return "Room No "+customerObject.getAllocatedRoomTocustomer()+""
 						+ " is allocated to Mr. "+customerObject.getcustomerName()+"\n"
 						+ "Customer Details are: \n"
@@ -49,6 +49,14 @@ public class GuestHouse {
 				return " No Room Available for now";
 			}		
 	} 
+	
+	/**
+	 * @method getRoomNo()
+	 * method returning room no after applying hashcode to age
+	 * */
+	private int getRoomNo(int age){
+		return hashCode(age);
+	}
 	/**
 	 * @method checkAvailabilityAndAllocateTheRoom()
 	 * according to roomNo calculated using hash Function and custmerObject, 
@@ -67,7 +75,7 @@ public class GuestHouse {
 				customerObject.setcustomerId(guestHouseName+"/"+currentCustomerNo);
 				customerObject.setAllocatedRoomTocustomer(roomNo);
 				allocatedRoomsDetails.put(roomNo,customerObject);
-				currentCustomerNo++;
+				//currentCustomerNo++;
 				currentlyAllocatedNoOFRooms++;
 				return true;
 			}
