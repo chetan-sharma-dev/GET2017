@@ -1,4 +1,4 @@
-package com.metacube.treesort;
+package com.metacube.assignment1;
 
 import java.util.ArrayList;
 import java.util.Iterator;
@@ -6,45 +6,67 @@ import java.util.List;
 
 import com.metacube.node.Node;
 
+/**
+ * @class TreeSort
+ * generic tree sort class doing sorting using tree sort
+ * */
 public class TreeSort<E extends Comparable<E>> {
 	private Node<E> root;
-	
+	/**
+	 * @class
+	 * method for sorting list and returning sorted list
+	 * */
 	public String getSortedList(List<E> listOfElements){
-		generateBinarySearchTree(listOfElements);
-		return getInOrder();
+		/*
+		 * generating binary search tree and getting inorder
+		 * */
+		if(listOfElements!=null){
+			generateBinarySearchTree(listOfElements);
+			return getInOrder();
+		}else{
+			return null;
+		}
 		 
 	}
-	public void generateBinarySearchTree(List<E> listOfElements){
+	/**
+	 * @method generateBinarySearchTree()
+	 * method generating BST
+	 * */
+	private void generateBinarySearchTree(List<E> listOfElements){
 		Iterator<E> itr = listOfElements.iterator();
 		while(itr.hasNext()){
 			Node<E> nodeToBeInserted=new Node<E>(itr.next());
 			if(root==null){
 				root=nodeToBeInserted;
 			}else{
-			iterateAndInsert(root, nodeToBeInserted);
+				iterateAndInsertNodeInTree(root, nodeToBeInserted);
 			}
 		}	
 	}
+	/**
+	 * @method iterateAndInsertNodeInTree()
+	 * method for inserting node in tree iteratively
+	 * */
 	
-	private boolean iterateAndInsert(Node<E> currentNode,Node<E> nodeToBeInserted){
+	private boolean iterateAndInsertNodeInTree(Node<E> currentNode,Node<E> nodeToBeInserted){
 			if(currentNode.getData().compareTo(nodeToBeInserted.getData())>0){
 				if(currentNode.getLeftChild()==null){
 					currentNode.setLeftChild(nodeToBeInserted);
 					return true;
 				}
-				return iterateAndInsert(currentNode.getLeftChild(), nodeToBeInserted);
+				return iterateAndInsertNodeInTree(currentNode.getLeftChild(), nodeToBeInserted);
 			}else if(currentNode.getData().compareTo(nodeToBeInserted.getData())<0){
 				if(currentNode.getRightChild()==null){
 					currentNode.setRightChild(nodeToBeInserted);
 					return true;
 				}
-				return iterateAndInsert(currentNode.getRightChild(), nodeToBeInserted);
+				return iterateAndInsertNodeInTree(currentNode.getRightChild(), nodeToBeInserted);
 			}else if(currentNode.getData().compareTo(nodeToBeInserted.getData())==0){
 				if(currentNode.getRightChild()==null){
 					currentNode.setRightChild(nodeToBeInserted);
 					return true;
 				}
-				return iterateAndInsert(currentNode.getRightChild(), nodeToBeInserted);
+				return iterateAndInsertNodeInTree(currentNode.getRightChild(), nodeToBeInserted);
 			}
 			return false;
 	}
@@ -53,7 +75,7 @@ public class TreeSort<E extends Comparable<E>> {
 	 * @method getInOrder()
 	 * method for getting inOrder for given tree  
 	 * */
-	public String getInOrder(){
+	private String getInOrder(){
 		/*
 		 * checking whether root is null or not 
 		 * */
@@ -87,21 +109,20 @@ public class TreeSort<E extends Comparable<E>> {
 		return response;		
 	}
 	
-	public void inOrderTraversalOfTree(){
-		
-	}
+	
 	
 	public static void main(String[] args) {
 		TreeSort<Integer> treeObject=new TreeSort<Integer>();
 		List<Integer> listOfDisorderedRollNos=new ArrayList<Integer>();
 		listOfDisorderedRollNos.add(10);
-		listOfDisorderedRollNos.add(0);
+		listOfDisorderedRollNos.add(-20);
 		listOfDisorderedRollNos.add(3);
 		listOfDisorderedRollNos.add(6);
 		listOfDisorderedRollNos.add(5);
 		listOfDisorderedRollNos.add(60);
-		treeObject.generateBinarySearchTree(listOfDisorderedRollNos);
-		System.out.println(treeObject.getInOrder());
+		System.out.println(treeObject.getSortedList(null));
+		System.out.println(treeObject.getSortedList(listOfDisorderedRollNos));
+		
 	}
 	
 	

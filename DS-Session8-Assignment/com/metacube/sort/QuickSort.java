@@ -2,28 +2,49 @@ package com.metacube.sort;
 
 import java.util.ArrayList;
 import java.util.List;
-
+/**
+ * @class 
+ * class for implementing Quick sort logic
+ * */
 public class QuickSort<E extends Comparable<E>>{
 
-	public List<E> sortList(List<E> list){
-		quickSort(list, 0, list.size()-1);
+	/**
+	 * @method sort()
+	 * method for sorting given list
+	 * @param inputList
+	 * @return sortedList
+	 * */
+	public List<E> sort(List<E> list){
+		if(list!=null){
+			quickSort(list, 0, list.size()-1);
+		}
 		return list;
 	}
 	
-	public void quickSort(List<E> list, int startIndex,int endIndex){
+	/**
+	 * @method quickSort()
+	 * method for sorting list using quick sort divide and conquer strategy recursively
+	 * */
+	private void quickSort(List<E> list, int startIndex,int endIndex){
 		
 		if(startIndex<endIndex){
-			
 			int partitionIndex=partition(list,startIndex,endIndex);
-			
 			quickSort(list, startIndex, partitionIndex-1);
 			quickSort(list, partitionIndex+1, endIndex);
-			
 		}
-		
 	}
 	
-	public int partition(List<E> list,int startIndex,int endIndex){
+	/**
+	 * @method partition()
+	 * method dividing problem and returning some partition index 
+	 * */
+	private int partition(List<E> list,int startIndex,int endIndex){
+		//partition logic of quick sort
+		/**
+		 * taking end element as pivot element and after all iteration of partition loop
+		 * the pivot element reach at its right position 
+		 * we return that position now recursively we have to apply quick sort on left sublist and right sublist
+		 * */
 		E pivotElement=list.get(endIndex);
 		int storeIndex=startIndex-1;
 		
@@ -38,13 +59,14 @@ public class QuickSort<E extends Comparable<E>>{
 		
 		return storeIndex+1;
 	}
-	
-	public void swap(List<E> list ,int i,int j){
-		E temp=list.get(i);
-		list.set(i,list.get(j));
-		list.set(j,temp);	
+	/**
+	 * method for swapping list elements according to given indexs
+	 * */
+	private void swap(List<E> list ,int index1,int index2){
+		E temp=list.get(index1);
+		list.set(index1,list.get(index2));
+		list.set(index2,temp);	
 	}
-	
 	public static void main(String[] args) {
 		List<Integer> list=new ArrayList<Integer>();
 		QuickSort<Integer> quickObject=new QuickSort<Integer>();
@@ -54,7 +76,7 @@ public class QuickSort<E extends Comparable<E>>{
 		list.add(20);
 		list.add(6);
 		System.out.println(list);
-		System.out.println(quickObject.sortList(list));
+		System.out.println(quickObject.sort(list));
 		
 	}
 }

@@ -25,7 +25,10 @@ public class SortingSystem {
 		}
 	}
 
-	
+	/**
+	 * @method showMenuAndCallSortingMethods()
+	 * method to show menu to user and according to user sorting choice we call particular sorting algorithm 
+	 * */
 	
 	public String showMenuAndCallSortingMethods(List<Integer> userInputList){
 		System.out.println("Enter your choice (Select a sorting technique) :- \n"
@@ -36,21 +39,31 @@ public class SortingSystem {
 		switch(choice){
 			case 1: 
 				System.out.println("Comparison Sorting");
+				/*
+				 * if user input size < = 10 , then Sorting will be done using bubble sort
+				 * else , Quick sort will be used for sorting
+				 * */
 				if(userInputList.size()<=10){
 					BubbleSort<Integer> bubbleSortObject=new BubbleSort<Integer>();
-					return "Bubble Sort Used : "+bubbleSortObject.sortList(userInputList).toString();
+					return "Bubble Sort Used : "+bubbleSortObject.sort(userInputList).toString();
 				}else{
 					QuickSort<Integer> quickSortObject=new QuickSort<Integer>();
-					return "Bubble Sort Used : "+quickSortObject.sortList(userInputList).toString();
+					return "Quick Sort Used : "+quickSortObject.sort(userInputList).toString();
 				}
 			case 2:
+				/*
+				 * if maximum digits in given list is more than 2 then sorting will be done using Radix sort
+				 * else, Counting sort will be used for sorting
+				 * */
 				System.out.println("Linear Sorting");
 				int largestNo=Collections.max(userInputList);
 				int minimumNo=Collections.min(userInputList);
+			
 				int noOfDigitsInLargestNo=String.valueOf(largestNo).length();
-				int noOfDigitsInMinimumNo=String.valueOf(largestNo).length();
-				int maximumDigits=(noOfDigitsInLargestNo>noOfDigitsInMinimumNo)?noOfDigitsInLargestNo:noOfDigitsInMinimumNo;
+				int noOfDigitsInMinimumNo=String.valueOf(Math.abs(minimumNo)).length();
 				
+				int maximumDigits=(noOfDigitsInLargestNo>noOfDigitsInMinimumNo)?noOfDigitsInLargestNo:noOfDigitsInMinimumNo;
+			
 				if(maximumDigits>2){
 					RadixSort radixSortObject=new RadixSort();
 					return "Radix Sort Used : \n Sorted list is : "+radixSortObject.sort(userInputList).toString();	
