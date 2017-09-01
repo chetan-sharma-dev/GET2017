@@ -12,14 +12,9 @@ public class CountingSort {
 	List<Integer> resultIndexList;
 	List<Integer> uniqueValuesOfList;
 	
-	public CountingSort() {
-		//frequencyCountingList=Arrays.asList(new Integer[100]);
-	//	resultIndexList=Arrays.asList(new Integer[100]);
-	//	uniqueValuesOfList=new ArrayList<Integer>();
-	}
-	public void initializeAllList(){
-		frequencyCountingList=Arrays.asList(new Integer[100]);
-		resultIndexList=Arrays.asList(new Integer[100]);
+	public void initializeAllList(int listSize){
+		frequencyCountingList=Arrays.asList(new Integer[listSize]);
+		resultIndexList=Arrays.asList(new Integer[listSize]);
 		uniqueValuesOfList=new ArrayList<Integer>();
 		
 	}
@@ -41,70 +36,68 @@ public class CountingSort {
 		Collections.sort(uniqueValuesOfList);
 	}
 	
-	public void initializeResultIndexList(){
-		Iterator<Integer> itr=uniqueValuesOfList.iterator();
-		int previousElementPosition=0;
-		while(itr.hasNext()){
-				int element=itr.next();
-				resultIndexList.set(element, frequencyCountingList.get(element)+previousElementPosition);
-				previousElementPosition+=frequencyCountingList.get(element);
-				
+	public void initializeResultIndexList() {
+		Iterator<Integer> itr = uniqueValuesOfList.iterator();
+		int previousElementPosition = 0;
+		while (itr.hasNext()) {
+			int element = itr.next();
+			resultIndexList.set(element, frequencyCountingList.get(element)+ previousElementPosition);
+			previousElementPosition += frequencyCountingList.get(element);
+
 		}
 	}
-	
-	public List<Integer> sortList(List<Integer> list){
-		initializeAllList();
+
+	public List<Integer> sortList(List<Integer> list) {
+		initializeAllList(Collections.max(list) + 1);
 		initializeFrequencyCountingList(list);
 		initializeResultIndexList();
-		
-	
-		Iterator<Integer> itr=list.iterator();
-		List<Integer> sortedList=Arrays.asList(new Integer[list.size()]);
-		while(itr.hasNext()){
-			int element=itr.next();
-			resultIndexList.set(element, resultIndexList.get(element)-1);
-			sortedList.set(resultIndexList.get(element),element);
-			
+
+		Iterator<Integer> itr = list.iterator();
+		List<Integer> sortedList = Arrays.asList(new Integer[list.size()]);
+		while (itr.hasNext()) {
+			int element = itr.next();
+			resultIndexList.set(element, resultIndexList.get(element) - 1);
+			sortedList.set(resultIndexList.get(element), element);
+
 		}
 		return sortedList;
 	}
-	
-	
-	public List<Integer> sort(List<Integer> list){
+
+	public List<Integer> sort(List<Integer> list) {
+
+		int minimumNumber = Collections.min(list);
+		if(minimumNumber<0){
+			minimumNumber=Math.abs(minimumNumber);
+				Iterator<Integer> itr = list.iterator();
+				int currentIndex = 0;
+				while (itr.hasNext()) {
+					int element = itr.next();
+					list.set(currentIndex++, element + minimumNumber);
+				}
+				list = sortList(list);
 		
-		List<Integer> listOfNegativeNumberValuesOnly=new ArrayList<Integer>();
-		List<Integer> listOfPositiveValues=new ArrayList<Integer>();
-		List<Integer> finalSortedList=new ArrayList<Integer>();
+				itr = list.iterator();
+				currentIndex = 0;
+				while (itr.hasNext()) {
+					int element = itr.next();
 		
-		Iterator<Integer> itr=list.iterator();
-		while(itr.hasNext()){
-			int element=itr.next();
-			if(element<0){
-				listOfNegativeNumberValuesOnly.add(-1*element);
-			}else{
-				listOfPositiveValues.add(element);
-			}
+					list.set(currentIndex++, element - minimumNumber);
+				}
+		}else{
+			list = sortList(list);
 		}
-		
-		listOfNegativeNumberValuesOnly=sortList(listOfNegativeNumberValuesOnly);
-		Collections.reverse(listOfNegativeNumberValuesOnly);
-		itr=listOfNegativeNumberValuesOnly.iterator();
-		while(itr.hasNext()){
-			finalSortedList.add(-1*itr.next());
-		}
-		finalSortedList.addAll(sortList(listOfPositiveValues));
-		
-		return finalSortedList;
+		return list;
 	}
+	
 	public static void main(String[] args) {
 		CountingSort c=new CountingSort();
 		List<Integer> list=new ArrayList<Integer>();
-		list.add(2);
-		list.add(10);
+		list.add(1232);
+		list.add(150);
 		list.add(5);
-		list.add(2);
+		list.add(250);
 		list.add(6);
-	
-		System.out.println(c.sortList(list).toString());
+
+		System.out.println(c.sort(list).toString());
 	}
 }

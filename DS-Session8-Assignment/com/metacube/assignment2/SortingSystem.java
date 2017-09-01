@@ -47,10 +47,12 @@ public class SortingSystem {
 				System.out.println("Linear Sorting");
 				int largestNo=Collections.max(userInputList);
 				int minimumNo=Collections.min(userInputList);
+			
 				int noOfDigitsInLargestNo=String.valueOf(largestNo).length();
-				int noOfDigitsInMinimumNo=String.valueOf(largestNo).length();
-				int maximumDigits=(noOfDigitsInLargestNo>noOfDigitsInMinimumNo)?noOfDigitsInLargestNo:noOfDigitsInMinimumNo;
+				int noOfDigitsInMinimumNo=String.valueOf(minimumNo).length();
 				
+				int maximumDigits=(noOfDigitsInLargestNo>noOfDigitsInMinimumNo)?noOfDigitsInLargestNo:noOfDigitsInMinimumNo;
+			
 				if(maximumDigits>2){
 					RadixSort radixSortObject=new RadixSort();
 					return "Radix Sort Used : \n Sorted list is : "+radixSortObject.sort(userInputList).toString();	

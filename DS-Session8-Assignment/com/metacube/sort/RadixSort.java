@@ -49,32 +49,34 @@ public class RadixSort {
 		return updatedNewList;
 	}
 	
-public List<Integer> sort(List<Integer> list){
+
+	
+	public List<Integer> sort(List<Integer> list) {
+	
+		int minimumNumber = Collections.min(list);
+		if(minimumNumber<0){
+			minimumNumber=Math.abs(minimumNumber);
+				Iterator<Integer> itr = list.iterator();
+				int currentIndex = 0;
+				while (itr.hasNext()) {
+					int element = itr.next();
+					list.set(currentIndex++, element + minimumNumber);
+				}
+				list = sortList(list);
 		
-		List<Integer> listOfNegativeNumberValuesOnly=new ArrayList<Integer>();
-		List<Integer> listOfPositiveValues=new ArrayList<Integer>();
-		List<Integer> finalSortedList=new ArrayList<Integer>();
+				itr = list.iterator();
+				currentIndex = 0;
+				while (itr.hasNext()) {
+					int element = itr.next();
 		
-		Iterator<Integer> itr=list.iterator();
-		while(itr.hasNext()){
-			int element=itr.next();
-			if(element<0){
-				listOfNegativeNumberValuesOnly.add(-1*element);
-			}else{
-				listOfPositiveValues.add(element);
-			}
+					list.set(currentIndex++, element - minimumNumber);
+				}
+		}else{
+			list = sortList(list);
 		}
-		
-		listOfNegativeNumberValuesOnly=sortList(listOfNegativeNumberValuesOnly);
-		Collections.reverse(listOfNegativeNumberValuesOnly);
-		itr=listOfNegativeNumberValuesOnly.iterator();
-		while(itr.hasNext()){
-			finalSortedList.add(-1*itr.next());
-		}
-		finalSortedList.addAll(sortList(listOfPositiveValues));
-		
-		return finalSortedList;
+		return list;
 	}
+	
 	public int getNoOfDigits(int number){
 		return String.valueOf(number).length();
 	}
@@ -86,9 +88,8 @@ public List<Integer> sort(List<Integer> list){
 		list.add(-2);
 		list.add(1);
 		RadixSort r=new RadixSort();
-		//r.sortList(list);
 		System.out.println(r.sort(list));
-		//System.out.println(r.getNoOfDigits(14444));
+		
 	}
 
 }
