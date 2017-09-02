@@ -20,17 +20,12 @@ public class TreeSort<E extends Comparable<E>> {
 		/*
 		 * generating binary search tree and getting inorder
 		 * */
-<<<<<<< HEAD:DS-Session8-Assignment/com/metacube/assignment1/TreeSort.java
 		if(listOfElements!=null){
 			generateBinarySearchTree(listOfElements);
 			return getInOrder();
 		}else{
 			return null;
 		}
-=======
-		generateBinarySearchTree(listOfElements);
-		return getInOrder();
->>>>>>> f0988540e25be4773c01316f5089d8057f6734a5:DS-Session8-Assignment/com/metacube/treesort/TreeSort.java
 		 
 	}
 	/**
@@ -125,10 +120,7 @@ public class TreeSort<E extends Comparable<E>> {
 		listOfDisorderedRollNos.add(6);
 		listOfDisorderedRollNos.add(5);
 		listOfDisorderedRollNos.add(60);
-<<<<<<< HEAD:DS-Session8-Assignment/com/metacube/assignment1/TreeSort.java
 		System.out.println(treeObject.getSortedList(null));
-=======
->>>>>>> f0988540e25be4773c01316f5089d8057f6734a5:DS-Session8-Assignment/com/metacube/treesort/TreeSort.java
 		System.out.println(treeObject.getSortedList(listOfDisorderedRollNos));
 		
 	}

@@ -75,7 +75,6 @@ public class RadixSort {
 		return updatedNewList;
 	}
 	
-<<<<<<< HEAD
 	/**
 	 * method initiating sort in Radix sort
 	 * */
@@ -87,12 +86,6 @@ public class RadixSort {
 			 * then apply sorting and then subtracting absolute no from sorted list elements in ordered to get previous list in sorted order
 			 * else, directly apply sorting   
 			 */
-=======
-
-	
-	public List<Integer> sort(List<Integer> list) {
-	
->>>>>>> f0988540e25be4773c01316f5089d8057f6734a5
 		int minimumNumber = Collections.min(list);
 		if(minimumNumber<0){
 			minimumNumber=Math.abs(minimumNumber);
@@ -102,11 +95,7 @@ public class RadixSort {
 					int element = itr.next();
 					list.set(currentIndex++, element + minimumNumber);
 				}
-<<<<<<< HEAD
 				list = radixSort(list);
-=======
-				list = sortList(list);
->>>>>>> f0988540e25be4773c01316f5089d8057f6734a5
 		
 				itr = list.iterator();
 				currentIndex = 0;
@@ -116,7 +105,6 @@ public class RadixSort {
 					list.set(currentIndex++, element - minimumNumber);
 				}
 		}else{
-<<<<<<< HEAD
 			list = radixSort(list);
 		}
 	}
@@ -127,13 +115,6 @@ public class RadixSort {
 	 * @method
 	 * method to get no of digits in given no
 	 * */
-=======
-			list = sortList(list);
-		}
-		return list;
-	}
-	
->>>>>>> f0988540e25be4773c01316f5089d8057f6734a5
 	public int getNoOfDigits(int number){
 		return String.valueOf(number).length();
 	}

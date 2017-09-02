@@ -60,11 +60,7 @@ public class SortingSystem {
 				int minimumNo=Collections.min(userInputList);
 			
 				int noOfDigitsInLargestNo=String.valueOf(largestNo).length();
-<<<<<<< HEAD
 				int noOfDigitsInMinimumNo=String.valueOf(Math.abs(minimumNo)).length();
-=======
-				int noOfDigitsInMinimumNo=String.valueOf(minimumNo).length();
->>>>>>> f0988540e25be4773c01316f5089d8057f6734a5
 				
 				int maximumDigits=(noOfDigitsInLargestNo>noOfDigitsInMinimumNo)?noOfDigitsInLargestNo:noOfDigitsInMinimumNo;
 			

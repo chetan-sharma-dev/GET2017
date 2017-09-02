@@ -15,15 +15,11 @@ public class CountingSort {
 	List<Integer> resultIndexList;
 	List<Integer> uniqueValuesOfList;
 	
-<<<<<<< HEAD
 	/**
 	 * @method initializeAllList()
 	 * method for initializing all Lists variables 
 	 * */
 	private void initializeAllList(int listSize){
-=======
-	public void initializeAllList(int listSize){
->>>>>>> f0988540e25be4773c01316f5089d8057f6734a5
 		frequencyCountingList=Arrays.asList(new Integer[listSize]);
 		resultIndexList=Arrays.asList(new Integer[listSize]);
 		uniqueValuesOfList=new ArrayList<Integer>();
@@ -55,7 +51,6 @@ public class CountingSort {
 		// sorting unique values
 		Collections.sort(uniqueValuesOfList);
 	}
-<<<<<<< HEAD
 
 	/**
 	 * @method initializeResultIndexList()
@@ -66,11 +61,6 @@ public class CountingSort {
 		/**
 		 * iterating uniqueValuesIndex and initializing the same numbered index in resultIndexList
 		 * */
-=======
-	
-	public void initializeResultIndexList() {
-		Iterator<Integer> itr = uniqueValuesOfList.iterator();
->>>>>>> f0988540e25be4773c01316f5089d8057f6734a5
 		int previousElementPosition = 0;
 		while (itr.hasNext()) {
 			int element = itr.next();
@@ -80,7 +70,6 @@ public class CountingSort {
 		}
 	}
 
-<<<<<<< HEAD
 	/**
 	 * @method countingSort()
 	 * method initiating counting sort
@@ -89,20 +78,14 @@ public class CountingSort {
 		/**
 		 * first of all according to list initializing all data members of class
 		 * */
-=======
-	public List<Integer> sortList(List<Integer> list) {
->>>>>>> f0988540e25be4773c01316f5089d8057f6734a5
 		initializeAllList(Collections.max(list) + 1);
 		initializeFrequencyCountingList(list);
 		initializeResultIndexList();
 
-<<<<<<< HEAD
 		/**
 		 * iterating list from start to end ,
 		 * and picking position from result index list and decrementing the index counter after tracing particular element
 		 * */
-=======
->>>>>>> f0988540e25be4773c01316f5089d8057f6734a5
 		Iterator<Integer> itr = list.iterator();
 		List<Integer> sortedList = Arrays.asList(new Integer[list.size()]);
 		while (itr.hasNext()) {
@@ -114,7 +97,6 @@ public class CountingSort {
 		return sortedList;
 	}
 
-<<<<<<< HEAD
 	/**
 	 * @method sort()
 	 * method take calls counting sort method to sort
@@ -149,40 +131,13 @@ public class CountingSort {
 			}else{
 				list = countingSort(list);
 			}
-=======
-	public List<Integer> sort(List<Integer> list) {
-
-		int minimumNumber = Collections.min(list);
-		if(minimumNumber<0){
-			minimumNumber=Math.abs(minimumNumber);
-				Iterator<Integer> itr = list.iterator();
-				int currentIndex = 0;
-				while (itr.hasNext()) {
-					int element = itr.next();
-					list.set(currentIndex++, element + minimumNumber);
-				}
-				list = sortList(list);
-		
-				itr = list.iterator();
-				currentIndex = 0;
-				while (itr.hasNext()) {
-					int element = itr.next();
-		
-					list.set(currentIndex++, element - minimumNumber);
-				}
-		}else{
-			list = sortList(list);
->>>>>>> f0988540e25be4773c01316f5089d8057f6734a5
 		}
 		return list;
 	}
 	
-<<<<<<< HEAD
 	/**
 	 * main method 
 	 * */
-=======
->>>>>>> f0988540e25be4773c01316f5089d8057f6734a5
 	public static void main(String[] args) {
 		CountingSort c=new CountingSort();
 		List<Integer> list=new ArrayList<Integer>();
@@ -192,10 +147,7 @@ public class CountingSort {
 		list.add(250);
 		list.add(6);
 
-<<<<<<< HEAD
 		System.out.println(c.sort(null));
-=======
->>>>>>> f0988540e25be4773c01316f5089d8057f6734a5
 		System.out.println(c.sort(list).toString());
 	}
 }
