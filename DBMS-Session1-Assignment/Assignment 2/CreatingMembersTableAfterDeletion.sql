@@ -1,7 +1,7 @@
 USE library_information_system;
 
 CREATE TABLE members(
-member_id VARCHAR(20),
+member_id INT AUTO_INCREMENT,
 member_name VARCHAR(40) NOT NULL,
 addressline1 VARCHAR(40) NOT NULL,
 addressline2 VARCHAR(40),

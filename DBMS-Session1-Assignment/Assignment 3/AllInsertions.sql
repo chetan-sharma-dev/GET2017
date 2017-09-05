@@ -1,4 +1,4 @@
-/*members table insertion*/
+ /*members table insertion*/
  INSERT INTO members (member_name,addressline1,category) VALUES ("Chetan Sharma","Shrimadhopur","M");
  INSERT INTO members (member_name,addressline1,category) VALUES ("MOMINA","Shrimadhopur","F");
  
@@ -34,3 +34,21 @@
   
  /*title_author values insertion*/
  INSERT INTO title_author VALUES (1,1);
+
+
+/*update address line 2 as Jaipur in members table*/
+
+ UPDATE members SET addressline2="Jaipur";
+
+/*updating address line 1 in members table where category is F*/
+UPDATE members SET addressline1="EPIP,Sitapura" WHERE category="F";
+
+/*deleting all data from publishers (all dependent entries will be deleted automatically)*/
+ delete from publishers;
+ 
+ SET @publisher_name="SANJIV";
+/*inserting back data in publishers table*/
+INSERT INTO publishers  VALUES (@publisher_name);
+
+/*delete titles table entris where publisher id is PUB/1*/
+delete from titles where publisher_id=1;
