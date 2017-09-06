@@ -3,8 +3,8 @@ CREATE DATABASE city_zip_code;
 USE city_zip_code;
 
 CREATE TABLE states(
-state_id INT AUTO_INCREMENT UNIQUE,
-state_name VARCHAR(30),
+state_id INT AUTO_INCREMENT,
+state_name VARCHAR(30) UNIQUE NOT NULL,
 PRIMARY KEY(state_id)
 );
 
