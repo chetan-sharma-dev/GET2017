@@ -4,7 +4,6 @@ SELECT
  (SELECT COUNT(member_id) 
  FROM members
  WHERE category="F") AS FACULTY,
-
 ( SELECT COUNT(member_id)
  FROM members
  WHERE category="S"
@@ -14,7 +13,7 @@ SELECT
  WHERE category!="F" AND category!="S") AS OTHERS;
 
  /*2*/
- SELECT title_name
+ SELECT T.title_name
 FROM book_issue AS BI
 JOIN books AS B
 ON BI.accession_no=B.accession_no
@@ -41,7 +40,5 @@ HAVING COUNT(BI.accession_no)>2;
  ON TA.author_id=A.author_id
  GROUP BY TA.author_id
  HAVING COUNT(TA.author_id)>=1;
- 
- SELECT * FROM authors;
- 
+
  
