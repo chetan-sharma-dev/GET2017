@@ -1,4 +1,4 @@
-package com.metacube.Main;
+package com.metacube.main;
 
 import com.metacube.controller.Controller;
 
