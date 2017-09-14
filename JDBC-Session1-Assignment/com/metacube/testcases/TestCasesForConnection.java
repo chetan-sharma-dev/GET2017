@@ -3,13 +3,17 @@ package com.metacube.testcases;
 import static org.junit.Assert.*;
 
 import java.sql.Connection;
+
+import org.junit.Before;
 import org.junit.Test;
 
+import com.metacube.dao.MysqlDao;
 import com.metacube.jdbc.JdbcMysqlConnection;
 
 public class TestCases {
 	
 	Connection connetionObject;
+	
 
 	@Test
 	public void positiveTestCaseForGetConnection() {
@@ -17,6 +21,8 @@ public class TestCases {
 		connetionObject=JMCObject.getConnection();
 		assertNotNull(connetionObject);
 	}
+	
+	
 	
 	
 }
