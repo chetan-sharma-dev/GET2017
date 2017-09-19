@@ -20,6 +20,7 @@
    .navbar-default .navbar-toggle{
 	background-color:#F0677C;
 	border:1px solid black;
+	margin-right:0px;
   }
   .navbar-default .navbar-toggle .icon-bar {
 	background-color:white;
