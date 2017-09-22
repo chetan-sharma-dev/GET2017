@@ -78,7 +78,7 @@
   .panel-body{
 	  padding:10px 35px;
   }
-  .modal-body ul li,.panel-body ul li{
+  .notice-panel ul li{
 	  border-width:0px 0px 1px 0px; 
 	  margin:8px 0px;
   }
@@ -151,7 +151,6 @@
     top: -10px;
     right: -10px;
     opacity: 1;
-	//z-index:1;
   }
   .carousel-indicators .active{
     background-color: black;
@@ -167,9 +166,7 @@
 .carousel-control.left,.carousel-control.right{
 	background-image:none;
 }
-.carousel-inner{
-	//display:inline;
-}
+
 .modal-footer{
 	border:none;
 }
@@ -178,6 +175,10 @@
 	color:#B2B2B2;
 	top: 35%;
 }
+.item{
+	padding-top:10px;
+}
+
 .item .panel-default .panel-heading {
 					background-color:#009788;
 					color:white;
@@ -195,11 +196,6 @@
 				}
 .item .panel-default a{
 					text-decoration:none;
-					float:right;
-					padding:2px 2px 2px 4px;
-					background-color:white;
-					border-radius:2px;
-					color:#009788;
 				}
 .item .panel-group {
 						width: 90%;
@@ -212,12 +208,4 @@
 	min-height:350px;
 	padding:40px;
 }
-.item{
-	padding-top:10px;
-}
-.tab-menu ul li{
-	margin:0px;
-}
-.tab-pane{
-	padding:5px;
-}
+

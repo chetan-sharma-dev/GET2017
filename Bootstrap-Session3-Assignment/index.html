@@ -12,6 +12,21 @@
 		
 		<style>
 			
+			
+			
+			
+			
+			.panel-default h4:after {
+			font-family:'Glyphicons Halflings';
+			content:"\2212";
+			float: right;
+			color: white;
+			}
+			.panel-default a.collapsed h4:after {
+			content:"\2b";
+			}
+			.modal .fade .in{
+			}
 		</style>
 	</head>
 	<body>
@@ -73,8 +88,8 @@
 			</div>
 			
 			<div class="row">
-				<div class="col-xs-12 col-sm-3" data-toggle="modal" data-target="#myModal">
-					<div class="notification content-box well">
+				<div class="col-xs-12 col-sm-3" >
+					<div class="notification content-box well" data-toggle="modal" data-target="#myModal">
 						<span class="glyphicon glyphicon-bell" aria-hidden="true"></span>
 						<hr/>
 						<p>Notifications</p>
@@ -116,7 +131,7 @@
 							<button class="btn btn-success pull-right btn-xs"><span class="glyphicon glyphicon-cog "></span> <b class="caret"></b></button>
 						</div>	
 						
-						<div class="panel-body">
+						<div class="panel-body notice-panel">
 							<ul class="list-group">
 								
 								<li class="list-group-item">
@@ -259,12 +274,13 @@
 			</div>
 		</div>
 		
-		<div class="modal fade" id="myModal" role="dialog">
-			<div class="modal-dialog">
+		<div class="modal fade" id="myModal"  role="dialog">
+		
+			<div class="modal-dialog" >
 				
 				<!-- Modal content-->
 				<div class="modal-content">
-					<button type="button" class="close" data-dismiss="modal">&times;</button>
+					<button type="button" class="close"  data-dismiss="modal" data-target="#myCarousel" data-slide-to="0"  >&times;</button>
 					<div class="modal-header">
 						
 						<h4>Notifications</h4>
@@ -273,29 +289,29 @@
 						<!-- Wrapper for slides -->
 						<div class="modal-body" >
 							<div class="carousel-inner">
-								<div class="item active">
+								<div class="item active notice-panel" >
 									
 									
 									<ul class="list-group">
 										
 										<li class="list-group-item">
 											<span class="glyphicon glyphicon-align-left "></span> Lorem ipsum dolor sit amet ipsum dolor sit amet 
-											<button type="button" class="btn btn-warning btn-xs" btn-xs" data-toggle="tooltip" data-placement="top" title="Tooltip on top" >Just Now</button>
+											<button type="button" class="btn btn-warning btn-xs" data-toggle="tooltip" data-placement="top" title="This is tool-tip" >Just Now</button>
 										</li>
 										
 										<li class="list-group-item">
 											<span class="glyphicon glyphicon-info-sign "></span> Lorem ipsum dolor sit amet ipsum dolor sit amet 
-											<button type="button" class="btn btn-info btn-xs" data-toggle="tooltip"  data-placement="top" title="Tooltip on top">2 min chat</button>
+											<button type="button" class="btn btn-info btn-xs" data-toggle="tooltip"  data-placement="top" title="This is tool-tip">2 min chat</button>
 										</li>
 										
 										<li class="list-group-item">
 											<span class="glyphicon glyphicon-comment"></span> Lorem ipsum dolor sit amet ipsum dolor sit amet 
-											<button type="button" class="btn btn-success btn-xs" data-toggle="tooltip"  data-placement="top" title="Tooltip on top">Go!</button>
+											<button type="button" class="btn btn-success btn-xs" data-toggle="tooltip"  data-placement="top" title="This is tool-tip">Go!</button>
 										</li>
 										
 										<li class="list-group-item">
 											<span class="glyphicon glyphicon-edit"></span> Lorem ipsum dolor sit amet ipsum dolor sit amet 
-											<button type="button" class="btn btn-success btn-xs" data-toggle="tooltip"  data-placement="top" title="Tooltip on top">Let's have it</button>
+											<button type="button" class="btn btn-success btn-xs" data-toggle="tooltip"  data-placement="top" title="This is tool-tip">Let's have it</button>
 										</li>
 										
 									</ul>
@@ -306,12 +322,16 @@
 								<div class="item">
 									<div class="panel-group" id="accordion">
 										<div class="panel panel-default">
-											<div class="panel-heading">
-												<h4 class="panel-title row">
-													<div class="col-xs-9"><label>Collapsible Group #1</label></div>
-													<div class="col-xs-3"><a data-toggle="collapse" data-parent="#accordion" href="#collapse1" id="col1" class="glyphicon glyphicon-minus"></a></div>
-												</h4>
-											</div>
+											<a data-toggle="collapse" data-parent="#accordion" href="#collapse1" >
+												<div class="panel-heading">
+													
+													<h4 class="panel-title">
+														Collapsible Group #1
+														
+													</h4>
+													
+												</div>
+											</a>
 											<div id="collapse1" class="panel-collapse collapse in">
 												<div class="panel-body">Lorem ipsum dolor sit amet, consectetur adipisicing elit,
 													sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
@@ -319,12 +339,15 @@
 											</div>
 										</div>
 										<div class="panel panel-default">
-											<div class="panel-heading">
-												<h4 class="panel-title row">
-													<div class="col-xs-9">  <label>Collapsible Group #2</label></div>
-													<div class="col-xs-3">  <a data-toggle="collapse" data-parent="#accordion" href="#collapse2" id="col2" class="glyphicon glyphicon-plus" ></a></div>
-												</h4>
-											</div>
+											<a data-toggle="collapse" data-parent="#accordion" href="#collapse2" class="collapsed">
+												<div class="panel-heading">
+													<h4 class="panel-title">
+														Collapsible Group #2
+														
+													</h4>
+												</div>
+											</a>
+											
 											<div id="collapse2" class="panel-collapse collapse">
 												<div class="panel-body">Lorem ipsum dolor sit amet, consectetur adipisicing elit,
 													sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
@@ -332,13 +355,14 @@
 											</div>
 										</div>
 										<div class="panel panel-default">
-											<div class="panel-heading">
-												<h4 class="panel-title row">
-													
-													<div class="col-xs-9"> <label>Collapsible Group #3</label></div>
-													<div class="col-xs-3 text-right">  <a data-toggle="collapse" data-parent="#accordion" href="#collapse3" id="col3" class="glyphicon glyphicon-plus" ></a></div>
-												</h4>
-											</div>
+											<a data-toggle="collapse" data-parent="#accordion" href="#collapse3" class="collapsed">
+												<div class="panel-heading">
+													<h4 class="panel-title">
+														Collapsible Group #3
+													</h4>
+												</div>
+											</a>
+											
 											<div id="collapse3" class="panel-collapse collapse">
 												<div class="panel-body">Lorem ipsum dolor sit amet, consectetur adipisicing elit,
 													sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
@@ -350,50 +374,43 @@
 								</div>
 								
 								<div class="item">
-									<div class="tab-menu">
-										
-										<ul class="nav nav-tabs">
-											<li class="active"><a href="#tab1" data-toggle="tab" class="panel-tab">Tab1</a></li>
-											<li><a href="#tab2" data-toggle="tab" class="panel-tab">Tab2</a></li>
-											<li><a href="#tab3" data-toggle="tab" class="panel-tab">Tab3</a></li>
-											<li><a href="#tab4" data-toggle="tab" class="panel-tab">Tab4</a></li>
-										</ul>
-										<div class="tab-content">
-											<div class="tab-pane in active" id="tab1">
-												tab 1 data
-												Raw denim you probably haven’t heard of them jean shorts Austin.
-												Nesciunt tofu stumptown aliqua, retro synth master cleanse.
-												Mustache cliche tempor, williamsburg carles vegan helvetica.
-												Reprehenderit butcher retro keffiyeh dreamcatcher synth.
-												Cosby sweater eu banh mi, qui irure terry richardson ex squid. 
-											</div>
-											<div class="tab-pane" id="tab2">
-												tab 2 data
-												Raw denim you probably haven’t heard of them jean shorts Austin.
-												Nesciunt tofu stumptown aliqua, retro synth master cleanse.
-												Mustache cliche tempor, williamsburg carles vegan helvetica.
-												Reprehenderit butcher retro keffiyeh dreamcatcher synth.
-												Cosby sweater eu banh mi, qui irure terry richardson ex squid. 
-											</div>
-											<div class="tab-pane" id="tab3">
-												tab 3 data
-												Raw denim you probably haven’t heard of them jean shorts Austin.
-												Nesciunt tofu stumptown aliqua, retro synth master cleanse.
-												Mustache cliche tempor, williamsburg carles vegan helvetica.
-												Reprehenderit butcher retro keffiyeh dreamcatcher synth.
-												Cosby sweater eu banh mi, qui irure terry richardson ex squid. 
-											</div>
-											<div class="tab-pane" id="tab4">
-												tab 4 data
-												Raw denim you probably haven’t heard of them jean shorts Austin.
-												Nesciunt tofu stumptown aliqua, retro synth master cleanse.
-												Mustache cliche tempor, williamsburg carles vegan helvetica.
-												Reprehenderit butcher retro keffiyeh dreamcatcher synth.
-												Cosby sweater eu banh mi, qui irure terry richardson ex squid. 
-											</div>
-										</div>
-										
-									</div>
+								 
+                                              <div class="tab-item">
+                                                 <ul class="nav nav-tabs ">
+                                                    
+                                                    <li class="active "><a data-toggle="tab" href="#tab1">Tab1</a></li>
+                                                    
+                                                    
+                                                    <li class=""><a data-toggle="tab" href="#tab2">Tab2</a></li>
+                                                    
+                                                    
+                                                    <li class=""><a data-toggle="tab" href="#tab3">Tab3</a></li>
+                                                    
+                                                    
+                                                    <li class=""><a data-toggle="tab" href="#tab4">Tab4</a></li>
+                                                  
+                                                  </ul>
+
+                                                  <div class="tab-content">
+                                                    <div id="tab1" class="tab-pane fade in active">
+                                                      <h3>Tab 1</h3>
+                                                      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                                                    </div>
+                                                    <div id="tab2" class="tab-pane fade">
+                                                      <h3>Tab 2</h3>
+                                                      <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+                                                    </div>
+                                                    <div id="tab3" class="tab-pane fade">
+                                                      <h3>Tab 3</h3>
+                                                      <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam.</p>
+                                                    </div>
+                                                    <div id="tab4" class="tab-pane fade">
+                                                      <h3>Tab 4</h3>
+                                                      <p>Eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.</p>
+                                                    </div>
+                                                  </div>
+                                              </div>
+                                            
 									
 									
 								</div>   
@@ -423,6 +440,7 @@
 				</div>
 				
 			</div>
+			
 		</div>
 		
 		
@@ -435,38 +453,37 @@
 		</footer>
 		<script>
 		
-			$('.collapse').on('shown.bs.collapse', function(){
-				$(this).parent().find(".glyphicon-plus").removeClass("glyphicon-plus").addClass("glyphicon-minus");
-				}).on('hidden.bs.collapse', function(){
-				$(this).parent().find(".glyphicon-minus").removeClass("glyphicon-minus").addClass("glyphicon-plus");
-			});
+		$('.modal').on('shown.bs.modal',function(){
 			
+				$('#myCarousel').carousel('cycle');
+				});
+				
+		$('.modal').on('hidden.bs.modal',function(){
+			
+						$('#myCarousel').carousel('pause');
+						$('#myCarousel').carousel(0);
+				});
+				
+		
+					
+				
 			$(document).ready(function(){
 				$("button").tooltip({
-					placement: get_placement_position_set_tooltip_attributes
+					placement:(function(){
+						var width = window.innerWidth;
+						var position="top";
+						if (width<768){ 
+							position="right";
+							if(width>560 && width <600)
+							{	
+								position="bottom";
+							}	
+						} 
+						return position;
+					})
 					
 				});
 			});
-			
-			
-			function  get_placement_position_set_tooltip_attributes() {
-				var width = window.innerWidth;
-				var title="Tooltip on ";
-					var position="top";
-				if (width<768){ 
-					position="right";
-					if(width>560 && width <600)
-					{	
-						position="bottom";
-					}
-					
-				} 
-				title+=position+"!";
-				$(".btn").attr("data-placement",position);
-				$(".btn").attr("data-original-title",title);
-				return position;
-			}
-			
 			
 		</script>
 	</body>
