@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	  <title>Bootstrap Example</title>
+	  <meta charset="utf-8">
+	  <meta name="viewport" content="width=device-width, initial-scale=1">
+	  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	  <link rel="stylesheet" href="css/style.css">
+	  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+	  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
+	  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+<body>
+<!-- Navigation bar start-->
+	<nav class="navbar navbar-default">
+		<header class="header">
+			<div class="container" >
+				<div class="row">
+					
+					<div class="col-xs-12 pull-right" >
+						
+							<button type="button" class="navbar-toggle " data-toggle="collapse" data-target="#navbar-menu" >
+								<span class="icon-bar"></span>
+								<span class="icon-bar"></span>
+								<span class="icon-bar"></span>                        
+							</button>
+					</div>
+				</div>	
+				<div class="row">
+					<div class="col-xs-12 col-sm-11 col-lg-11 " >
+							<div class="logo navbar-brand">LOGO</div>
+					</div>
+					<div class="col-xs-12  col-sm-1 col-lg-1" >
+							<div class="pull-right">
+								<span class="glyphicon glyphicon-user user-icon"></span>
+							</div>
+					</div>
+				</div>
+			</div>
+		</header>
+		
+		<div class="nav navbar-inverse">
+			<div class="container">
+				<div class="col-sm-1 col-md-4 col-lg-5"></div>
+				<div class="col-sm-11 col-md-8 col-lg-7 collapse navbar-collapse navbar-right navbar-menu" id="navbar-menu">
+						<ul class="nav navbar-nav ">
+						  <li class="active-menu"><a href="#" >Dashboard</a></li>
+						  <li><a href="#">UI Elements</a></li>
+						  <li><a href="#">Data Tables</a></li>
+						  <li><a href="#">Forms</a></li>
+						  <li><a href="#">Login Page</a></li>
+						  <li><a href="#">Blank Page</a></li>
+						  
+						</ul>
+					
+				</div>
+			</div>
+		</div>
+	</nav>
+	<!-- Navigation bar end-->
+	
+	<div class="dashboard-content container">
+			<div class="jumbotron">
+				<h4> DASHBOARD </h4>
+			</div>
+			
+			<div class="alert alert-success">
+				This is a simple admin templete that can be used for your small project or may be large projects. This is free for personal and commercial use.
+			</div>
+
+			<div class="row">
+				<div class="col-xs-12 col-sm-3" >
+					<div class="notification content-box well">
+						<span class="glyphicon glyphicon-bell" aria-hidden="true"></span>
+						<hr/>
+						<p>Notifications</p>
+					</div>
+					
+				</div>
+				<div class=" col-xs-12 col-sm-3" >
+					<div class="photography content-box well">
+						<span class="glyphicon glyphicon-camera" aria-hidden="true"></span>
+						<hr/>
+						<p>Photography</p>
+					</div>
+					
+				</div>
+				<div class="col-xs-12 col-sm-3" >
+					<div class="favourites content-box well">
+						<span class="glyphicon glyphicon-heart" aria-hidden="true"></span>
+						<hr/>
+						<p>Favourites</p>
+					</div>
+					
+				</div>
+				<div class="col-xs-12 col-sm-3" >
+					<div class="announcements content-box well">
+						<span class="glyphicon glyphicon-volume-up" aria-hidden="true"></span>
+						<hr/>
+						<p>Announcements</p>
+					</div>
+				</div>
+			</div>	
+	</div>
+
+	<div class="container">
+		<div class="row">
+			<div class="col-xs-12 col-sm-12 col-lg-6">
+				<div class="panel panel-default">
+					<div class="panel-heading">
+							Active Notice Panel
+							<button class="btn btn-success pull-right btn-xs"><span class="glyphicon glyphicon-cog "></span> <b class="caret"></b></button>
+					</div>	
+					
+					<div class="panel-body">
+						<ul class="list-group">
+							
+							<li class="list-group-item">
+								<span class="glyphicon glyphicon-align-left "></span> Lorem ipsum dolor sit amet ipsum dolor sit amet 
+								<button type="button" class="btn btn-warning btn-xs">Just Now</button>
+							</li>
+							
+							<li class="list-group-item">
+								<span class="glyphicon glyphicon-info-sign "></span> Lorem ipsum dolor sit amet ipsum dolor sit amet 
+								<button type="button" class="btn btn-info btn-xs">2 min chat</button>
+							</li>
+							
+							<li class="list-group-item">
+								<span class="glyphicon glyphicon-comment"></span> Lorem ipsum dolor sit amet ipsum dolor sit amet 
+								<button type="button" class="btn btn-success btn-xs">Go!</button>
+							</li>
+							
+							<li class="list-group-item">
+								<span class="glyphicon glyphicon-edit"></span> Lorem ipsum dolor sit amet ipsum dolor sit amet 
+								<button type="button" class="btn btn-success btn-xs">Let's have it</button>
+							</li>
+						
+						</ul>
+					</div>
+					<div class="panel-footer">
+							<button type="button" class="btn btn-default btn-block">
+								<span class="glyphicon glyphicon-repeat"></span>
+								Just a small footer button
+							</button>
+					</div>
+				</div>
+				
+				<hr/>
+				
+				<div class="social-media-links alert alert-warning">
+						<a href="#" class="fa fa-facebook"> Facebook</a>
+						<a href="#" class="fa fa-google-plus"> Google</a>
+						<a href="#" class="fa fa-twitter"> Twitter</a>
+						<a href="#" class="fa fa-linkedin"> Linkedin</a>
+				</div>
+				
+				<hr/>
+				
+				<div class="table-responsive">
+					 <table class="table table-bordered table-striped">
+						<thead>
+							  <tr>
+								<th>Ref No.</th>
+								<th>Date</th>
+								<th>Amount</th>
+								<th>Status</th>
+								<th>Delivery On</th>
+								<th># #</th>
+							  </tr>
+						</thead>
+						<tbody>
+							  <tr>
+									<td># 2501</td>
+									<td>01/22/2015</td>
+									<td><span class="label label-info">300 USD</span></td>
+									<td><span class="label label-success">Delivered</span></td>
+									<td>01/25/2015 </td>
+									<td><button type="button" class="btn btn-success btn-xs">View</button></td>
+							  </tr>
+							  <tr>
+									<td># 15091</td>
+									<td>12/12/2014</td>
+									<td><span class="label label-danger">7000 USD</span></td>
+									<td><span class="label label-warning">Shipped</span></td>
+									<td>N/A</td>
+									<td><button type="button" class="btn btn-danger btn-xs">View</button></td>
+							  </tr>
+							  <tr>
+									<td># 11291</td>
+									<td>12/03/2014</td>
+									<td><span class="label label-warning">7000 USD</span></td>
+									<td><span class="label label-success">Delivered</span></td>
+									<td>01/23/2015</td>
+									<td><button type="button" class="btn btn-primary btn-xs">View</button></td>
+							  </tr>
+							  <tr>
+									<td>#1808</td>
+									<td>11/10/2014</td>
+									<td><span class="label label-success">2000 USD</span></td>
+									<td><span class="label label-info">Returned</span></td>
+									<td>N/A</td>
+									<td><button type="button" class="btn btn-danger btn-xs">View</button></td>
+							  </tr>
+						</tbody>
+					</table>
+				</div>
+			</div>
+			<div class="col-xs-12 col-sm-12 col-lg-6">
+				<div class="alert alert-danger">
+					This is a simple admin templete that can be used for your small project or may be large projects. This is free for personal and commercial use.
+				</div>
+				
+				<hr/>
+				
+				<div class="panel panel-success">
+					<div class="panel-heading">
+							Compose New Message
+					</div>
+					<div class="panel-body">
+						<form action="#" class="message-form">
+							<div class="form-group">
+							  <label for="name">Enter Recipient Name:</label>
+							  <input type="text" class="form-control" id="name" name="name"/>
+							</div>
+							
+							<div class="form-group">
+							  <label for="subject">Subject Name:</label>
+							  <input type="text" class="form-control" id="subject" name="subject"/>
+							</div>
+							
+							<div class="form-group">
+							  <label for="message">Enter Message:</label>
+							  <textarea rows="11" cols="50" class="form-control" id="message" name="message" ></textarea>
+							</div>
+							
+							<hr/>
+							
+							<button type="submit" class="btn btn-warning">
+								<span class="glyphicon glyphicon-envelope"></span>
+								Send Message
+							</button>
+							
+							<button type="submit" class="btn btn-success">
+								<span class="glyphicon glyphicon-tags"></span>  
+								Save To Drafts
+							</button>
+						</form>
+					</div>
+					<div class="panel-footer">
+						<p><strong>Note</strong>: Please note that we track all messages so don't send any spams.</p>
+					</div>
+				</div>	
+				
+			</div>
+		</div>
+	</div>
+
+	<footer class="page-footer">
+		<div class="container">
+			<div class="content">
+				&copy; 2016 All rights reserved
+			</div>
+		</div>
+	</footer>
+</body>
+</html>
