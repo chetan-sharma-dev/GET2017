@@ -22,7 +22,7 @@ __decorate([
 ProductDetailComponent = __decorate([
     core_1.Component({
         selector: 'product-detail',
-        template: "\n    <div class=\"container text-center\">\n    <div *ngIf=\"product\" class=\"col-xs-12 col-sm-6 \">\n      <div class=\"panel panel-primary\">\n          <div class=\"panel-heading\">\n            <h3>  {{product.name}} details!</h3>\n          </div>\n          <div class=\"panel-body\">\n              <table class=\"table table-bordered\">\n                  <tbody>\n                      <tr>\n                            <td>\n                                <label>id: </label>\n                            </td>\n                          <td>\n                              {{product.id}}\n                          </td>\n                      </tr>\n    \n                      <tr>\n                          <td>\n                              <label>Name: </label>\n                          </td>\n                        <td>\n                            {{product.name}}\n                        </td>\n                    </tr>\n    \n                    <tr>\n                        <td>\n                            <label>Price: </label>\n                        </td>\n                      <td>\n                          {{product.price}}\n                        <!-- <input [(ngModel)]=\"selectedProduct.price\" placeholder=\"price\"/>-->\n                      </td>\n                  </tr>\n                    </tbody>\n                </table>\n            \n          </div>\n      </div>\n    </div>\n    </div>\n    "
+        templateUrl: "./product-details-templete.html"
     })
 ], ProductDetailComponent);
 exports.ProductDetailComponent = ProductDetailComponent;

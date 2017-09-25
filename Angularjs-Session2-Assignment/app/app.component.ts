@@ -7,7 +7,7 @@ import {Product} from './product';
 
 @Component({
   selector: 'my-app',
-  templateUrl: './app.component.html',
+  templateUrl: './app-component-templete.html',
     styleUrls : ['./app.component.css'],
 })
 
