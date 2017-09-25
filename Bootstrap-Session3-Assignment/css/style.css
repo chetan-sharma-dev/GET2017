@@ -78,19 +78,19 @@
   .panel-body{
 	  padding:10px 35px;
   }
-  .panel-body ul li{
+  .notice-panel ul li{
 	  border-width:0px 0px 1px 0px; 
 	  margin:8px 0px;
   }
   
-  .panel-body .list-group li span{
+  .modal-body .list-group li span,.panel-body .list-group li span{
 	  padding:5px;
 	  margin:0px 4px;
 	  border:1px solid #DBDBDB;
 	  color:#8A6D3B;
   }
   
-  .panel-body .list-group li button{
+  .modal-body .list-group li button,.panel-body .list-group li button{
 	  font-weight:700;
   }
  
@@ -135,4 +135,77 @@
 		padding-left:80px;
 		margin-top:10px;
   }
- 
+  
+  .modal-content .modal-header{
+	  background-color:#B9B739;
+	  color:white;
+	  
+  }
+  .modal-content .close{
+	font-size: 25px;
+    background-color: white;
+    border: 1px solid black;
+    border-radius: 50px;
+    padding:0px 5px;
+    position: relative;
+    top: -10px;
+    right: -10px;
+    opacity: 1;
+  }
+  .carousel-indicators .active{
+    background-color: black;
+}
+
+.carousel-indicators li{
+	 background-color: #9A9A9A;
+}
+
+.carousel-control{
+	width:35px;
+}
+.carousel-control.left,.carousel-control.right{
+	background-image:none;
+}
+
+.modal-footer{
+	border:none;
+}
+
+.carousel-control .glyphicon-chevron-left, .carousel-control .glyphicon-chevron-right, .carousel-control .icon-next, .carousel-control .icon-prev{
+	color:#B2B2B2;
+	top: 35%;
+}
+.item{
+	padding-top:10px;
+}
+
+.item .panel-default .panel-heading {
+					background-color:#009788;
+					color:white;
+				}
+				
+.item .panel {
+					 margin-bottom: 0px;
+					border: none;
+					box-shadow:none;
+				}
+.item .panel-group{
+					padding:0px;
+					border:1px solid #009788;
+					border-radius:4px;
+				}
+.item .panel-default a{
+					text-decoration:none;
+				}
+.item .panel-group {
+						width: 90%;
+						margin: 0px 5%;
+						padding: 0px;
+						border: 1px solid #009788;
+						border-radius: 4px;
+					}
+.modal-body{
+	min-height:350px;
+	padding:40px;
+}
+
