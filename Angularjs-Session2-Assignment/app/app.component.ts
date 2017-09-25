@@ -2,12 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { PRODUCTS } from './mock-product';
 import { ProductService } from './product.service';
 
-export class Product {
-  id: number;
-  name: string;
-  price:number;
-}
-
+import {Product} from './product';
 
 
 @Component({

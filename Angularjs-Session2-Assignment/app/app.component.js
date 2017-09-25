@@ -10,12 +10,6 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 var core_1 = require("@angular/core");
 var product_service_1 = require("./product.service");
-var Product = (function () {
-    function Product() {
-    }
-    return Product;
-}());
-exports.Product = Product;
 var AppComponent = (function () {
     function AppComponent(productService) {
         this.productService = productService;

@@ -1,4 +1,4 @@
-import { Product }   from './app.component'; 
+import { Product }   from './product'; 
 
 export const PRODUCTS: Product[] = [
     { id: 1, name: 'Fastrack Watch' ,price:1700},

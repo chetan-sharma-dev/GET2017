@@ -4,10 +4,11 @@ import { FormsModule }   from '@angular/forms'; // <-- NgModel lives here
 
 import { AppComponent }  from './app.component';
 import { ProductService }  from './product.service';
+import {ProductDetailComponent } from './product-detail.component';
 
 @NgModule({
   imports:      [ BrowserModule ,FormsModule],
-  declarations: [ AppComponent ],
+  declarations: [ AppComponent ,ProductDetailComponent ],
   bootstrap:    [ AppComponent ],
   providers: [ProductService]
 })
