@@ -1,14 +1,14 @@
 import { Product }   from './app.component'; 
 
 export const PRODUCTS: Product[] = [
-    { id: 11, name: 'Mr. Nice' ,phone:9667605691},
-    { id: 12, name: 'Narco' ,phone:96605691},
-    { id: 13, name: 'Bombasto' ,phone:5691},
-    { id: 14, name: 'Celeritas' ,phone:9667605691},
-    { id: 15, name: 'Magneta' ,phone:5691},
-    { id: 16, name: 'RubberMan',phone:5691 },
-    { id: 17, name: 'Dynama',phone:691},
-    { id: 18, name: 'Dr IQ' ,phone:5691},
-    { id: 19, name: 'Magma',phone:5691},
-    { id: 20, name: 'Tornado',phone:5691 }
+    { id: 1, name: 'Fastrack Watch' ,price:1700},
+    { id: 2, name: 'Puma Shoe' ,price:2050},
+    { id: 3, name: 'Basket ball' ,price:591},
+    { id: 4, name: 'Football' ,price:991},
+    { id: 5, name: 'Sports T-shirt' ,price:561},
+    { id: 6, name: 'Trouser',price:631 },
+    { id: 7, name: 'Bat',price:1621},
+    { id: 8, name: 'Seabags Bag' ,price:5611},
+    { id: 9, name: 'Baseball',price:591},
+    { id: 10, name: 'Badminton',price:601 }
   ];

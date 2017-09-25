@@ -1,1 +1,59 @@
-<h1>Hello {{name}}</h1>
+<div class="conatainer text-center">
+<div class="jumbotron"><h1>{{title}}</h1></div>
+</div>
+<div class="container text-center">
+  <ul class="products">
+    <a *ngFor="let product of products"
+      [class.selected]="product === selectedProduct"
+      (click)="onSelect(product)" class=" col-xs-12 col-sm-4">
+      <div class="panel panel-primary">
+        <div class="panel-heading">{{product.id}}</div> 
+        <div class="panel-body">{{product.name}}</div>
+    </div>
+    </a>
+  </ul>
+</div>
+
+<div class="container text-center">
+    <div *ngIf="selectedProduct" class="col-xs-12 col-sm-6 ">
+      <div class="panel panel-primary">
+          <div class="panel-heading">
+            <h3>  {{selectedProduct.name}} details!</h3>
+          </div>
+          <div class="panel-body">
+              <table class="table table-bordered">
+                  <tbody>
+                      <tr>
+                            <td>
+                                <label>id: </label>
+                            </td>
+                          <td>
+                              {{selectedProduct.id}}
+                          </td>
+                      </tr>
+
+                      <tr>
+                          <td>
+                              <label>Name: </label>
+                          </td>
+                        <td>
+                            {{selectedProduct.name}}
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td>
+                            <label>Price: </label>
+                        </td>
+                      <td>
+                          {{selectedProduct.price}}
+                        <!-- <input [(ngModel)]="selectedProduct.price" placeholder="price"/>-->
+                      </td>
+                  </tr>
+                    </tbody>
+                </table>
+            
+          </div>
+      </div>
+    </div>
+</div>
