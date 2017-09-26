@@ -1,0 +1,16 @@
+<div class="conatainer text-center">
+<div class="jumbotron"><h1>{{title}}</h1></div>
+</div>
+<div class="container text-center">
+  <ul class="products">
+    <a *ngFor="let product of products"
+      [class.selected]="product === selectedProduct"
+      (click)="onSelect(product)" class=" col-xs-12 col-sm-4">
+      <div class="panel panel-primary">
+        <div class="panel-heading">{{product.id}}</div> 
+        <div class="panel-body">{{product.name}}</div>
+    </div>
+    </a>
+  </ul>
+</div>
+<product-detail [product]="selectedProduct" >Loading selected product details....</product-detail>
