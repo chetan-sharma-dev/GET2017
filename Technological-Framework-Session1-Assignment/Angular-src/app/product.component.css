@@ -1,0 +1,16 @@
+a{
+    text-decoration:none;
+  }
+  th{
+    text-align: center;
+  }
+
+  .glyphicons{
+      color:white;
+  }
+  .modal-header{
+  background-color:#337AB7;
+  }
+  .add-product{
+    margin: 10px ;
+  }
