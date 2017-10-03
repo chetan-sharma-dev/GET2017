@@ -1,0 +1,26 @@
+
+ .panel-heading ul{
+    
+      width:100%;
+  }
+  .panel-heading {
+    padding:0px;
+  }
+  .nav-tabs li a{
+    text-decoration:none;
+    color:white; 
+  }
+  .nav-tabs li a:focus,.nav-tabs li a:hover{
+    background-color:white;
+    color:black;
+  }
+  .panel-body{
+      padding:0px;
+     
+  }
+  .heading {
+    background-color: #337AB7;
+    padding: 3%;
+    font-size: 30px;
+    color: white;
+  }
