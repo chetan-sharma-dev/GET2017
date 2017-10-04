@@ -1,0 +1,22 @@
+<nav class="navbar navbar-default">
+    <div class=" panel  text-center">
+         <div class="heading">{{title}}</div>
+          <div class="panel-heading clearfix">
+               
+              <ul class="nav nav-tabs navbar-inverse ">
+                  <li><a routerLink="/dashboard" data-toggle="tab">Dashboard</a></li>
+                  <li><a routerLink="/products" data-toggle="tab">Products</a></li>
+                  <li><a routerLink="/contactus" data-toggle="tab">Contactus</a></li>
+             </ul>
+          </div>
+          <div class="panel-body">
+                <router-outlet></router-outlet>
+          </div>
+          
+        <!--<button routerLink="/dashboard" class="btn btn-primary">Dashboard</button>
+        <button routerLink="/products" class="btn btn-primary">Products</button>
+        <button routerLink="/contactus" class="btn btn-primary">Contactus</button>
+        -->
+        
+    </div>
+  </nav> 
