@@ -1,0 +1,94 @@
+<div class="conatainer text-center">
+<div class="jumbotron"><h1>{{title}}</h1></div>
+</div>
+<div class="container ">
+    <div class="add-product text-right">
+      <button class="btn btn-info" (click)="gotoAddPage()" >   
+        <span class="glyphicon glyphicon-plus-sign"></span> Add Product
+      </button>
+    </div>
+  <div class="products">
+      <table class="table table-bordered ">
+        <thead >
+            <tr class="text-center">
+              <th>
+                Product Id
+             </th>
+             <th>
+               Product Name
+              </th>
+              <th>
+                 Operations
+                </th>
+            </tr>
+          </thead>
+          <tbody>
+              <tr *ngFor="let product of products"
+              [class.selected]="product === selectedProduct"
+              class="">
+              
+              
+                   <td>
+                     {{product.id}}
+                    </td> 
+                      <td  >{{product.name}}</td>
+                      <td>
+                          <button class="btn btn-info" (click)="gotoDetail(product)" >
+                            <span class="glyphicon glyphicon-eye-open"></span>
+                            View
+                          </button>
+                       <!--   <button class="btn btn-warning " data-toggle="modal" (click)="onSelect(product)" data-target="#myModal"> -->
+                              <button class="btn btn-warning " data-toggle="modal" (click)="gotoDetailEdit(product)">
+                             <span class="glyphicon glyphicon-pencil"></span>
+                               Edit</button>
+                          <button class="btn btn-danger" (click)="delete(product); $event.stopPropagation()">
+                              <span class="glyphicon glyphicon-remove"></span>
+                               Delete</button>
+                      </td>
+                     
+                  
+             
+          </tr>
+          </tbody>
+  </table>
+</div>
+  </div>
+  <!-- Modal content-->
+  <!--
+
+  <div id="myModal" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+   
+      <div class="modal-content">
+        <div class="modal-header" >
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title">Modal Header</h4>
+        </div>
+        <div class="modal-body" *ngIf="selectedProduct">
+            <product-detail [product]="selectedProduct">Loading selected product details....</product-detail>
+          <p>Some text in the modal.</p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+  
+    </div>
+  </div>
+-->
+<!--
+
+  <div *ngIf="selectedProduct" class="col-sm-3">
+    <div class="panel panel-primary ">
+      <div class="panel-heading">
+        {{selectedProduct.name | uppercase}} is my product
+      </div>
+      <div class="panel-body">
+          <button (click)="gotoDetail()">View Details</button>
+      </div>
+    </div>
+   
+  </div>
+
+<product-detail [product]="selectedProduct" >Loading selected product details....</product-detail>
+-->
