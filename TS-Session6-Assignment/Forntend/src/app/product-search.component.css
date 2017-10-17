@@ -1,0 +1,25 @@
+.search-result{
+    border-bottom: 1px solid #52B5E4;
+    border-left: 1px solid #52B5E4;
+    border-right: 1px solid #52B5E4;
+    border-radius: none;
+    background-color: white;
+    cursor: pointer;
+    z-index: 10;
+    
+  }
+   
+  .search-result:hover {
+    color: #eee;
+    background-color: #52B5E4;
+  }
+   
+  .result{
+    position: absolute;
+    z-index: 10;
+  }
+
+  #search-box{
+    margin-top:6px;
+    z-index: 10;
+  }

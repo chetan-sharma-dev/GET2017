@@ -1,0 +1,16 @@
+com\metacube\shoppingcart\dao\product\ProductDao.class
+com\metacube\shoppingcart\service\ProductService.class
+com\metacube\shoppingcart\service\DefaultProductService.class
+com\metacube\shoppingcart\enums\Status.class
+com\metacube\shoppingcart\dao\AbstractDao.class
+com\metacube\shoppingcart\dao\GenericJdbcDao.class
+com\metacube\shoppingcart\facade\DefaultProductFacade.class
+com\metacube\shoppingcart\plugin\CORSFilter.class
+com\metacube\shoppingcart\dto\ProductDto.class
+com\metacube\shoppingcart\controller\ProductController.class
+com\metacube\shoppingcart\dao\product\JdbcProductDao.class
+com\metacube\shoppingcart\facade\ProductFacade.class
+com\metacube\shoppingcart\modal\Product.class
+com\metacube\shoppingcart\service\ShoppingCartService.class
+com\metacube\shoppingcart\spring\Factory.class
+com\metacube\shoppingcart\dao\JdbcConnectionFactory.class
