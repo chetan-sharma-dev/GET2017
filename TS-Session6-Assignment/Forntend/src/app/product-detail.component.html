@@ -1,0 +1,25 @@
+<app-header [isUserLoggedIn]="true" ></app-header>
+<div class="container">
+    <div *ngIf="product" >
+        <div>
+    
+    <div class="col-md-4 mymargin">
+   
+        <div class="panel panel-primary ">
+            <div class="panel-heading">
+                <div class="panel-title">{{product.name}} details!!</div>
+            </div>
+            <div class="panel-body text-center">
+                <div><label>Id :</label>{{product.id}} </div>
+                <div><label>Price :</label>{{product.price}} </div>
+                <!--<div><label>Seller :</label>{{product.seller}} </div>-->
+            </div>
+            <div class="panel-footer">
+            <button class="btn btn-danger" (click)="goBack()">
+                    <span class="glyphicon glyphicon-arrow-left"></span>Back</button>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+</div>

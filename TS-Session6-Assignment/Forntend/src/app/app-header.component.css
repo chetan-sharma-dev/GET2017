@@ -1,0 +1,56 @@
+header{
+    background-color: #1976D2;
+    
+}
+
+h1{
+    text-align: center;
+    color: white;
+    padding: 30px;
+    margin-top:0;
+    margin-bottom: 0;
+}
+
+nav li a:hover{
+    color:#000000;
+    background-color: #1976D2;
+   }
+   
+#active{
+       background-color: #1976D2;
+   }
+
+.navbar-inverse .navbar-nav>li>a:active{
+    background-color: #1976D2;
+   }
+   
+.navbar-inverse{
+    border: 0px;
+    border-radius:0px;
+   }
+
+.navbar-inverse .navbar-nav>li>a{
+    color:#FFFFFF;
+   }
+
+nav a.active{
+    background-color: #1976D2;
+}
+
+.badge1 {
+    position:relative;
+ }
+ .badge1[data-badge]:after {
+    content:attr(data-badge);
+    position:absolute;
+    top:-10px;
+    right:-10px;
+    font-size:.7em;
+    background:green;
+    color:white;
+    width:18px;height:18px;
+    text-align:center;
+    line-height:18px;
+    border-radius:50%;
+    box-shadow:0 0 1px #333;
+ }

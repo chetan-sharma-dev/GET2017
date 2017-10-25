@@ -1,0 +1,17 @@
+
+
+
+<div class="container">
+    
+    <h3 class="text-center mymargin">Top Products</h3>
+        <div *ngFor="let Product of products"  class="col-md-3">
+            <div class="panel panel-primary">
+                
+                <div class="panel-heading" [routerLink]="['/detail',Product.id]">
+                    <div class="panel-title">{{Product.name}}</div>
+                </div>
+               
+            </div>
+        </div> 
+        
+</div>

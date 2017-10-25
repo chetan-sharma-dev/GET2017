@@ -1,0 +1,49 @@
+
+<div class="container">
+    <div class="pull-right">
+        <button class="btn btn-warning"  (click)="toCheckout()" >
+        <span class="glyphicon glyphicon-share-alt"></span>Checkout</button>
+    </div>
+<div class="mypanel mymargin">
+    <div class="panel panel-primary">
+        <div class="panel-heading">
+            <div class="panel-title text-center">Products in the Cart</div>
+        </div>
+        <div class="panel-body">
+            <div class="table-responsive">
+                <table class="table table-hover">
+                        <thead>
+                          <tr>
+                            <th>Product Id</th>
+                            <th>Name</th>
+                            <th>Price</th>
+                            
+                            <th>Options</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <tr *ngFor= "let Product of products" >
+                            <td>{{Product.id}}</td>
+                            <td>{{Product.name}} </td>
+                            <td>{{Product.price}}</td>
+                            
+                            <td> 
+                                <button class="btn btn-info btn-sm " [routerLink] ="['/detail',Product.id]" >
+                                <span class="glyphicon glyphicon-list-alt"></span> Detail</button>
+                                
+                                <button class="btn btn-danger btn-sm " (click) ="delete(Product)" >
+                                <span class="glyphicon glyphicon-trash"></span></button>
+                                
+                            </td>
+                        </tr>
+                          
+                        </tbody>
+                      </table>
+                </div>
+        </div>
+        <div class="panel-footer">
+            
+        </div>
+    </div>
+</div>
+</div>

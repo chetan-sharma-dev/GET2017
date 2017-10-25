@@ -1,0 +1,39 @@
+<header>
+    <h1>{{title}}</h1>
+</header>
+<div>
+<nav class="navbar navbar-inverse">
+    <div class="container">
+      <div class="collapse navbar-collapse" id="navbar">
+        <ul class="nav navbar-nav" >
+          <li><a [routerLink]="['dashboard']" routerLinkActive="active" >Dashboard</a></li>
+          <li><a [routerLink]="['products']" routerLinkActive="active" >Products</a></li>
+          <li><a [routerLink]="['contactus']" routerLinkActive="active">Contact Us</a></li>
+          <li><a [routerLink]="['cart']" routerLinkActive="active" *ngIf="minicart">
+              <span class="glyphicon glyphicon-shopping-cart">{{minicart.totalNoproduct}}</span> 
+            
+            Cart <span class="label label-primary">{{minicart.totalCost}}</span></a></li>
+        
+        </ul>
+        
+        <div class="pull-right">  
+          <button class="btn btn-danger" style="
+          margin-top: 8px;" (click)="LogOut()" >Log-Out</button>
+        </div>
+        <div class="pull-right">  
+          <button class="btn btn-success" style="
+          margin-top: 8px;  margin-right: 10px;" [routerLink]="['myorders']" >My-Orders</button>
+        </div>
+        <div class="pull-right"  *ngIf="minicart" style="
+        margin-top: 8px;  margin-right: 10px;     color: white;
+        ">
+            <h4>Welcome {{minicart.user.email}}</h4>
+        </div>
+      </div>
+      </div>
+  </nav>
+
+  <router-outlet></router-outlet>
+
+
+</div>

@@ -1,0 +1,37 @@
+<div class="container">
+    
+<div class="mypanel mymargin">
+    <div class="panel panel-primary">
+        <div class="panel-heading">
+            <div class="panel-title text-center">Your Previous Orders</div>
+        </div>
+        <div class="panel-body">
+            <div class="table-responsive">
+                <table class="table table-hover">
+                        <thead>
+                          <tr>
+                            <th>Order Id</th>
+                            <th>Order Date</th>
+                            <th>Total</th>
+                            <th>Options</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <tr *ngFor= "let Order of myorders" >
+                            <td>{{Order.orderId}}</td>
+                            <td>{{Order.date}} </td>
+                            <td>{{Order.total}}</td>
+                            
+                            <td> 
+                                <button class="btn btn-info btn-sm " (click) = "getOrderDetail(Order.orderId)" >
+                                <span class="glyphicon glyphicon-list-alt"></span> Detail</button>
+                            </td>
+                        </tr>
+                          
+                        </tbody>
+                      </table>
+                </div>
+        </div>
+    </div>
+</div>
+</div>
